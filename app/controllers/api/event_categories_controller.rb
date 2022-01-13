@@ -1,4 +1,5 @@
 class Api::EventCategoriesController < ApplicationController
+    skip_before_action :authorize, only: [:create, :index, :show]
 
     def index
         render json: EventCategory.all, status: :ok

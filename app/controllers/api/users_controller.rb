@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-    before_action :find_user, only: :destroy
+    before_action :find_user, only: [:destroy, :update]
     before_action :current_user, only: :show
     skip_before_action :authorize, only: [:create, :index, :show]
 
@@ -11,6 +11,11 @@ class Api::UsersController < ApplicationController
         user = User.create!(user_params) 
         session[:user_id] = user.id
         render json: user, status: :created 
+    end
+
+    def update 
+        @user.update(user_params)
+        render json: @user, status: :accepted
     end
 
     def show
@@ -25,7 +30,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :full_name, :avatar, :isPromoter, :password, :password_confirmation)
     end
 
     def find_user

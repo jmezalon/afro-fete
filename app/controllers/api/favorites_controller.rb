@@ -17,6 +17,6 @@ class Api::FavoritesController < ApplicationController
     private 
 
     def favorites_params
-        params.permit(:user_id, :event_id)
+        params.permit(:event_id)
     end
 end

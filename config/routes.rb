@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :events
     resources :galleries, only: [:index, :create, :destroy]
     resources :event_categories, only: [:create, :index, :show]
-    resources :hashtags, only: [:create, :index, :show]
+    resources :hashtags, only: [:create, :index, :show, :update]
     resources :favorites, only: [:create, :index, :destroy]
     resources :gallery_tags, only: [:create, :index, :show, :destroy]
 

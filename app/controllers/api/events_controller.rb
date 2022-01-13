@@ -16,7 +16,8 @@ class Api::EventsController < ApplicationController
     end
 
     def update  
-        render json: @event.update(event_params), status: :accepted
+        @event.update(event_params)
+        render json: @event, status: :accepted
     end
 
     def destroy 
@@ -27,7 +28,7 @@ class Api::EventsController < ApplicationController
     private 
 
     def event_params
-        params.permit(:img_url, :venue_name, :address, :city, :state, :zip, :date, :description)
+        params.permit(:img_url, :event_category_id, :venue_name, :address, :city, :state, :zip, :date, :description)
     end
 
     def find_event
