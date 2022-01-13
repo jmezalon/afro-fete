@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_category: one
+  user: one
+  img_url: MyString
+  venue_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  date: 2022-01-13 13:05:57
+
+two:
+  event_category: two
+  user: two
+  img_url: MyString
+  venue_name: MyString
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+  date: 2022-01-13 13:05:57
