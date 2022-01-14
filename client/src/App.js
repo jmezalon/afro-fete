@@ -14,7 +14,7 @@ function App() {
       <hr
         style={{
           height: "1px",
-          "background-color": "rgb(201 199 199)",
+          backgroundColor: "rgb(201 199 199)",
           border: "none",
           width: "100%",
           marginBottom: "5%",

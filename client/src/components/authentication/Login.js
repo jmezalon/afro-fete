@@ -7,12 +7,19 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(username, password);
+    setUsername("");
+    setPassword("");
+  }
   return (
     <div className="auth-container">
       <h2>Log In</h2>
       <hr />
       <h1>logo goes here</h1>
-      <form action="login" className="auth-form">
+      <form action="login" onSubmit={handleSubmit} className="auth-form">
         <label htmlFor="username">
           <input
             type="text"

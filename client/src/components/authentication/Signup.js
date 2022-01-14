@@ -19,20 +19,49 @@ function Singup() {
       [e.target.name]: e.target.value,
     });
   }
+
+  function handleRadioChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: !formData.isPromoter,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      username: "",
+      fullName: "",
+      password: "",
+      passwordConfirmation: "",
+      isPromoter: false,
+    });
+  }
   return (
     <div className="auth-container">
       <h2>Sign Up</h2>
       <hr />
       <h1>logo goes here</h1>
-      <form action="signup" className="auth-form">
+      <form action="signup" onSubmit={handleSubmit} className="auth-form">
         <div id="radio-options">
           <span>I am a ...</span>
           <span>
-            <input type="radio" />
+            <input
+              type="radio"
+              name="isPromoter"
+              checked={formData.isPromoter === false}
+              onChange={handleRadioChange}
+            />
           </span>
           <label htmlFor="Partygoer">Partygoer</label>
           <span>
-            <input type="radio" />
+            <input
+              type="radio"
+              name="isPromoter"
+              checked={formData.isPromoter === true}
+              onChange={handleRadioChange}
+            />
           </span>
           <label htmlFor="promoter">Promoter</label>
         </div>
