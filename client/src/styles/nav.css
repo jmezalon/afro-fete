@@ -1,0 +1,66 @@
+.nav-container {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+}
+
+.left-side-nav {
+    margin-left: 4%;
+}
+
+
+.right-side-nav {
+    display: flex;
+    align-items: center;
+    width: 35%;
+    margin-right: 2%;
+    justify-content: flex-end;
+}
+
+.right-side-nav > a {
+    text-decoration: none;
+    color: #ED4C4C;
+    width: 19%;
+    font-size: small;
+}
+
+nav a:hover,
+nav a:active {
+    color: rgb(247, 3, 3);
+    border-radius: 16px;
+}
+
+#signup-active.active > button {
+    background: #ED4C4C;
+    color: white;
+}
+
+#login-active.active > button {
+    background: #ED4C4C;
+    color: white;
+}
+
+#profile-init {
+    width: 7%;
+    border: solid 1px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 2%;
+    margin-left: -4%;
+}
+
+.right-side-nav > a > button {
+    background: white;
+    border: solid 1px #ED4C4C;
+    border-radius: 16px;
+    width: 90%;
+    height: 29px;
+    color: #ED4C4C;
+}
+
+/* .right-side-nav > a > button:hover {
+    background: #ED4C4C;
+    color: white;
+} */

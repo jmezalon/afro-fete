@@ -1,0 +1,24 @@
+.footer-container {
+    background: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 135px;
+}
+
+.left-side-logo {
+    margin-left: 4%;
+}
+
+.right-side-options {
+    display: flex;
+    width: 25%;
+    margin-left: 2%;
+}
+
+.right-side-options > a {
+    text-decoration: none;
+    color: white;
+    width: 25%;
+    font-size: small;
+}
