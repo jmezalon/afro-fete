@@ -36,7 +36,9 @@ function Login() {
         </button>
         <>
           {errors.map((err) => (
-            <p key={err}>{err}</p>
+            <p style={{ color: "red" }} key={err}>
+              {err}
+            </p>
           ))}
         </>
       </form>

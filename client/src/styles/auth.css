@@ -39,3 +39,39 @@ hr {
     border: none;
     border-radius: 16px;
 }
+
+#radio-options {
+    display: flex;
+    justify-content: space-between;
+    width: 88%;
+    font-size: x-large;
+    margin: auto;
+    margin-bottom: 3%;
+}
+
+#radio-options > label {
+    margin-left: -40px;
+}
+
+/* #radio-options > span > input[type="radio"]:checked + label:after {
+    background-color: black;
+} */
+
+input[type="radio"] {
+  -moz-appearance: none;
+  appearance: none;
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 3px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid #bbbbbb;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    background-color: black;
+}
