@@ -10,6 +10,11 @@
     margin-left: 4%;
 }
 
+.left-side-nav > a {
+    text-decoration: none;
+    color: #ED4C4C;
+}
+
 
 .right-side-nav {
     display: flex;
@@ -51,6 +56,11 @@ nav a:active {
     margin-left: -4%;
 }
 
+#profile-init.active {
+    background: #ED4C4C;
+    color: white;
+}
+
 .right-side-nav > a > button {
     background: white;
     border: solid 1px #ED4C4C;
@@ -60,7 +70,7 @@ nav a:active {
     color: #ED4C4C;
 }
 
-/* .right-side-nav > a > button:hover {
+.right-side-nav > a > button:hover {
     background: #ED4C4C;
     color: white;
-} */
+}

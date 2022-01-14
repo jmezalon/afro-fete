@@ -6,7 +6,8 @@ function Footer() {
     <footer className="footer-container">
       <div className="left-side-logo">
         <NavLink exact to="/">
-          <img src="logo/afrofete_white.png" alt="logo" />
+          {/* <img src="logo/afrofete_white.png" alt="logo" /> */}
+          <h1>Afro-fete</h1>
         </NavLink>
       </div>
       <div className="right-side-options">

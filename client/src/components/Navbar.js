@@ -19,7 +19,8 @@ function Navbar() {
     <nav className="nav-container">
       <div className="left-side-nav">
         <NavLink exact to="/">
-          <img src="logo/afrofete_logo.png" alt="logo" />
+          {/* <img src="logo/afrofete_logo.png" alt="logo" /> */}
+          <h1>Afro-fete</h1>
         </NavLink>
       </div>
       <div className="right-side-nav">

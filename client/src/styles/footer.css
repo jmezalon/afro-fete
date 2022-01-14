@@ -10,6 +10,11 @@
     margin-left: 4%;
 }
 
+.left-side-logo > a {
+    text-decoration: none;
+    color: #ED4C4C;
+}
+
 .right-side-options {
     display: flex;
     width: 25%;
