@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { useHistory } from "react-router-dom";
 
 export const fetchUser = createAsyncThunk("users/fetchUser", async (user) => {
   const r = await fetch("/api/login", {
@@ -10,10 +9,6 @@ export const fetchUser = createAsyncThunk("users/fetchUser", async (user) => {
     body: JSON.stringify(user),
   });
   const loggedUser = await r.json();
-  //   const history = useHistory();
-  //   if (loggedUser) {
-  //     history.push("/");
-  //   }
   return loggedUser;
 });
 
@@ -26,12 +21,13 @@ export const signupUser = createAsyncThunk("users/signupUser", async (user) => {
     body: JSON.stringify(user),
   });
   const newUser = await r.json();
-  console.log(newUser);
-  //   const history = useHistory();
-  //   if (newUser) {
-  //     history.push("/");
-  //   }
   return newUser;
+});
+
+export const findMe = createAsyncThunk("users/findMe", async () => {
+  const r = await fetch("/api/me");
+  const user = await r.json();
+  return user;
 });
 
 const usersSlice = createSlice({
@@ -75,6 +71,10 @@ const usersSlice = createSlice({
         state.user = action.payload;
         state.errors = [];
       }
+      state.status = "idle";
+    },
+    [findMe.fulfilled](state, action) {
+      state.user = action.payload;
       state.status = "idle";
     },
   },

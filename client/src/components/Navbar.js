@@ -19,7 +19,14 @@ function Navbar() {
     });
   }
 
-  console.log(user, "navbar");
+  let initials;
+
+  if (user) {
+    let nameArr = user.full_name.split(" ");
+
+    initials = nameArr[0][0] + nameArr[1][0];
+  }
+
   return (
     <nav className="nav-container">
       <div className="left-side-nav">
@@ -57,7 +64,7 @@ function Navbar() {
         )}
         {user && (
           <NavLink id="profile-init" to="/profile">
-            <p>{user.full_name[0]}</p>
+            <p>{initials.toUpperCase()}</p>
           </NavLink>
         )}
         {user && (

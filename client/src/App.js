@@ -4,11 +4,19 @@ import About from "./components/About";
 import Landing from "./components/Landing";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-// import users from "./features/users/Users";
 import Singup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { findMe } from "./features/users/usersSlice";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(findMe());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Navbar />

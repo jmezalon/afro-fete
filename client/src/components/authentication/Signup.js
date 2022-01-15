@@ -34,7 +34,15 @@ function Singup() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    dispatch(signupUser(formData));
+    dispatch(
+      signupUser({
+        username: formData.username.toLocaleLowerCase(),
+        full_name: formData.full_name,
+        password: formData.password,
+        password_confirmation: formData.password_confirmation,
+        isPromoter: formData.isPromoter,
+      })
+    );
     setFormData({
       username: "",
       full_name: "",
@@ -48,7 +56,6 @@ function Singup() {
     user && history.push("/");
   }, [user, history]);
 
-  console.log(user);
   return (
     <div className="auth-container">
       <h2>Sign Up</h2>
