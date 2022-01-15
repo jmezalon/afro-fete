@@ -1,20 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import "../styles/nav.css";
+import { userLogout } from "../features/users/usersSlice";
 
 function Navbar() {
-  // const history = useHistory();
-  //   const user = { full_name: "Max Mezalon" };
-  const user = null;
+  const history = useHistory();
+  const user = useSelector((state) => state.users.user);
+  const dispatch = useDispatch();
+
   function handleLogout() {
-    //     fetch("/logout", {
-    //       method: "DELETE",
-    //     }).then((r) => {
-    //       if (r.ok) {
-    //         setUser(null);
-    //         history.push("/");
-    //       }
-    //     });
+    fetch("/api/logout", {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        dispatch(userLogout());
+        history.push("/");
+      }
+    });
   }
+
+  console.log(user, "navbar");
   return (
     <nav className="nav-container">
       <div className="left-side-nav">

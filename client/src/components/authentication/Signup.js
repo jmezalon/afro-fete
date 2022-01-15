@@ -1,17 +1,22 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
+import { signupUser } from "../../features/users/usersSlice";
 import "../../styles/auth.css";
 
 function Singup() {
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const errors = useSelector((state) => state.users.errors);
+  const isLoading = useSelector((state) => state.users.status);
+  const history = useHistory();
+  const user = useSelector((state) => state.users.user);
   const [formData, setFormData] = useState({
     username: "",
-    fullName: "",
+    full_name: "",
     password: "",
-    passwordConfirmation: "",
+    password_confirmation: "",
     isPromoter: false,
   });
+  const dispatch = useDispatch();
 
   function handleFormDataChange(e) {
     setFormData({
@@ -27,17 +32,23 @@ function Singup() {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    dispatch(signupUser(formData));
     setFormData({
       username: "",
-      fullName: "",
+      full_name: "",
       password: "",
-      passwordConfirmation: "",
+      password_confirmation: "",
       isPromoter: false,
     });
   }
+
+  useEffect(() => {
+    user && history.push("/");
+  }, [user, history]);
+
+  console.log(user);
   return (
     <div className="auth-container">
       <h2>Sign Up</h2>
@@ -75,12 +86,12 @@ function Singup() {
             onChange={handleFormDataChange}
           />
         </label>
-        <label htmlFor="fullName">
+        <label htmlFor="full name">
           <input
             type="text"
-            name="fullName"
+            name="full_name"
             placeholder="Full Name"
-            value={formData.fullName}
+            value={formData.full_name}
             onChange={handleFormDataChange}
           />
         </label>
@@ -93,17 +104,17 @@ function Singup() {
             onChange={handleFormDataChange}
           />
         </label>
-        <label htmlFor="password" className="last-label">
+        <label htmlFor="password confirmation" className="last-label">
           <input
             type="password"
-            name="passwordConfirmation"
+            name="password_confirmation"
             placeholder="confirm password"
-            value={formData.passwordConfirmation}
+            value={formData.password_confirmation}
             onChange={handleFormDataChange}
           />
         </label>
         <button className="login-button">
-          {isLoading ? "Loading..." : "Sign up"}
+          {isLoading === "loading" ? "Loading..." : "Sign up"}
         </button>
         <>
           {errors.map((err) => (

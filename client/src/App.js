@@ -4,6 +4,7 @@ import About from "./components/About";
 import Landing from "./components/Landing";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
+// import users from "./features/users/Users";
 import Singup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
 

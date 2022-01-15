@@ -1,19 +1,30 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+import { fetchUser } from "../../features/users/usersSlice";
+import { useSelector, useDispatch } from "react-redux";
 import "../../styles/auth.css";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const errors = useSelector((state) => state.users.errors);
+  const isLoading = useSelector((state) => state.users.status);
+  const history = useHistory();
+  const user = useSelector((state) => state.users.user);
+
+  const dispatch = useDispatch();
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(username, password);
+    dispatch(fetchUser({ username, password }));
     setUsername("");
     setPassword("");
   }
+
+  useEffect(() => {
+    user && history.push("/");
+  }, [user, history]);
+
   return (
     <div className="auth-container">
       <h2>Log In</h2>
@@ -39,7 +50,7 @@ function Login() {
           />
         </label>
         <button className="login-button">
-          {isLoading ? "Loading..." : "Login"}
+          {isLoading === "loading" ? "Loading..." : "Login"}
         </button>
         <>
           {errors.map((err) => (
