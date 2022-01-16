@@ -27,9 +27,13 @@ function Login() {
 
   return (
     <div className="auth-container">
-      <h2>Log In</h2>
+      <h4 className="auth-header">Log In</h4>
       <hr />
-      <h1>logo goes here</h1>
+      <img
+        className="auth-logo"
+        src={process.env.PUBLIC_URL + "/afrofete_logo.png"}
+        alt="logo"
+      />
       <form action="login" onSubmit={handleSubmit} className="auth-form">
         <label htmlFor="username">
           <input

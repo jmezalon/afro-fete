@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
-import Landing from "./components/Landing";
+import Landing from "./components/landing/Landing";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Singup from "./components/authentication/Signup";

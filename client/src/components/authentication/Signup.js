@@ -58,9 +58,17 @@ function Singup() {
 
   return (
     <div className="auth-container">
-      <h2>Sign Up</h2>
+      <h4 className="auth-header">Sign Up</h4>
       <hr />
-      <h1>logo goes here</h1>
+      <img
+        className="auth-logo"
+        src={process.env.PUBLIC_URL + "/afrofete_logo.png"}
+        alt="logo"
+      />
+      {/* <img
+        src={process.env.PUBLIC_URL + "/event-types-imgs/dayparty.png"}
+        alt=""
+      /> */}
       <form action="signup" onSubmit={handleSubmit} className="auth-form">
         <div id="radio-options">
           <span>I am a ...</span>
@@ -71,8 +79,8 @@ function Singup() {
               checked={formData.isPromoter === false}
               onChange={handleRadioChange}
             />
+            <label htmlFor="Partygoer">Partygoer</label>
           </span>
-          <label htmlFor="Partygoer">Partygoer</label>
           <span>
             <input
               type="radio"
@@ -80,8 +88,8 @@ function Singup() {
               checked={formData.isPromoter === true}
               onChange={handleRadioChange}
             />
+            <label htmlFor="promoter">Promoter</label>
           </span>
-          <label htmlFor="promoter">Promoter</label>
         </div>
 
         <label htmlFor="username">

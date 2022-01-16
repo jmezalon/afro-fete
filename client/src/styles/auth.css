@@ -10,6 +10,17 @@ hr {
     width: 30%;
 }
 
+.auth-logo {
+    width: 15%;
+    margin: 2% 0;
+}
+
+.auth-header {
+    font-size: 3.5em;
+    font-family: serif;
+    margin-bottom: 35px;
+}
+
 .auth-form {
     display: flex;
     flex-direction: column;

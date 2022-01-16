@@ -3,7 +3,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 85px;
+    height: 92px;
+}
+
+.logo {
+    width: 23%;
 }
 
 .left-side-nav {
