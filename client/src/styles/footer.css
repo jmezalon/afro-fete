@@ -27,3 +27,40 @@
     width: 25%;
     font-size: small;
 }
+
+
+/* secondary footer starts here   */
+
+.footer-secondary-container {
+    text-align: center;
+    margin: 4% 0 0 0;
+    background: #ED4C4C;
+    padding: 2% 0;
+    color: white;
+    font-size: 1.4em;
+    width: 112%;
+    margin-left: -6%;
+}
+
+.footer-secondary-container > form {
+    margin-top: -17px;
+    margin-bottom: 1%;
+}
+
+.footer-secondary-container > form > label > input {
+    width: 19%;
+    border: none;
+    border-radius: 16px;
+    height: 20px;
+    margin-right: 0.6%;
+    padding: 0 0% 0 1%;
+}
+
+.footer-secondary-container > form > button {
+    border: none;
+    border-radius: 16px;
+    color: #ED4C4C;
+    background: white;
+    width: 4%;
+    padding: 0.2% 0;
+}

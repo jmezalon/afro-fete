@@ -1,5 +1,7 @@
 import EventTypes from "./EventTypes";
 import "../../styles/landing.css";
+import FooterSecondary from "../FooterSecondary";
+import EventList from "./EventList";
 
 function Landing() {
   const calenderFilter = ["TODAY", "TOMORROW", "THIS WEEKEND", "THIS MONTH"];
@@ -30,13 +32,14 @@ function Landing() {
               <li key={day}>{day}</li>
             ))}
           </ul>
-          <button>Show more</button>
+          <EventList />
         </section>
         <hr />
         <section>
           <p>Trending Hashtags</p>
         </section>
       </main>
+      <FooterSecondary />
     </div>
   );
 }

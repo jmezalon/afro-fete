@@ -28,12 +28,13 @@ hr {
 }
 
 .auth-form > label > input {
-    width: 88%;
+    width: 86%;
     height: 30px;
     background: #F0F0F0;
     margin: 1% 0;
     border-radius: 5px;
     border: none;
+    padding: 0 0% 0 3%;
 }
 
 .last-label {

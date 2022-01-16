@@ -64,14 +64,14 @@ main > section > h6 {
     list-style: none; 
 }
 
-main > section > button {
+#show-more-button {
     background: white;
     border: solid 1px #ED4C4C;
     border-radius: 16px;
     width: 8%;
     height: 29px;
     color: #ED4C4C;
-    margin-left: 46.5%;
+    margin-bottom: 2%;
 }
 
 main > section > p {

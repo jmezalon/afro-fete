@@ -13,12 +13,8 @@ function EventTypes() {
   return (
     <div className="types-container">
       {types.map((t) => (
-        <Link to={"/category/" + t.id}>
-          <img
-            key={t.id}
-            alt="event-types"
-            src={process.env.PUBLIC_URL + t.img_url}
-          />
+        <Link key={t.id} to={"/category/" + t.id}>
+          <img alt="event-types" src={process.env.PUBLIC_URL + t.img_url} />
         </Link>
       ))}
     </div>

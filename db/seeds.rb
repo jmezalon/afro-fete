@@ -9,7 +9,7 @@ Hashtag.all.destroy_all
 
 jojo = User.create(username:'jojo', full_name:'Jonelle Bain', isPromoter: true, password: 'jojo', password_confirmation: 'jojo')
 
-Max = User.create(username:'JMax', full_name:'Max Mezalon', isPromoter: true, password: 'maxie', password_confirmation: 'maxie')
+Max = User.create(username:'JMax', full_name:'Max Mezalon', isPromoter: false, password: 'maxie', password_confirmation: 'maxie')
 
 
 # these are the event types
