@@ -11,7 +11,9 @@ function EventList() {
     dispatch(fetchEvents());
   }, [dispatch]);
 
-  console.log(events);
+  const eventsToBeSorted = [...events];
+  eventsToBeSorted.sort((a, b) => b.hash_count - a.hash_count);
+
   return (
     <div className="event-list-container">
       <p>list will go here</p>

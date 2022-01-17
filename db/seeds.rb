@@ -14,14 +14,14 @@ Max = User.create(username:'JMax', full_name:'Max Mezalon', isPromoter: false, p
 
 # these are the event types
 
-e1 = EventCategory.create(category: "Day Party", img_url: "/event-types-imgs/dayparty.png")
-e2 = EventCategory.create(category: "Brunch", img_url: "/event-types-imgs/Brunch.png")
-e3 = EventCategory.create(category: "Nightlife", img_url: "/event-types-imgs/nightlife1.png")
-e4 = EventCategory.create(category: "Boat Rides", img_url: "/event-types-imgs/boatrides.png")
-e5 = EventCategory.create(category: "After Work", img_url: "/event-types-imgs/afterwork.png")
-e6 = EventCategory.create(category: "Arts", img_url: "/event-types-imgs/arts.png")
-e7 = EventCategory.create(category: "Festivals", img_url: "/event-types-imgs/festivals.png")
-e8 = EventCategory.create(category: "Concerts", img_url: "/event-types-imgs/concerts.png")
+EventCategory.create(category: "Day Party", img_url: "/event-types-imgs/dayparty.png")
+EventCategory.create(category: "Brunch", img_url: "/event-types-imgs/Brunch.png")
+EventCategory.create(category: "Nightlife", img_url: "/event-types-imgs/nightlife1.png")
+EventCategory.create(category: "Boat Rides", img_url: "/event-types-imgs/boatrides.png")
+EventCategory.create(category: "After Work", img_url: "/event-types-imgs/afterwork.png")
+EventCategory.create(category: "Arts", img_url: "/event-types-imgs/arts.png")
+EventCategory.create(category: "Festivals", img_url: "/event-types-imgs/festivals.png")
+EventCategory.create(category: "Concerts", img_url: "/event-types-imgs/concerts.png")
 
 # these events are for brunch
 Event.create!(user_id: jojo.id, venue_name: "620 Loft Garden", zip: "11236", state: "NY", img_url: "https://spacehuntr.com/wp-content/uploads/2020/09/Magnificent-vibrant-venue-with-Mediterranean-style-1.jpg", city: "Brooklyn", address: "1463 E 96th", event_category_id: EventCategory.all.sample.id, date: "2022/01/21", description: "come enjoy with me for my birthday")
@@ -44,14 +44,14 @@ Event.create!(user_id: jojo.id, venue_name: "Party Life", zip: "11876", state: "
 Event.create!(user_id: jojo.id, venue_name: "Lux pleasure", zip: "10736", state: "NY", img_url: "https://pyxis.nymag.com/v1/imgs/101/30b/f06555b200ed1e823d4d2241e5788a3160-2----.w710.jpg", city: "Staten Island", address: "56-21 staten island dr", event_category_id: EventCategory.all.sample.id, date: "2022/03/11", description: "come enjoy with me for my birthday")
 
 
-Hashtag.create(event_id: e1.id, tag: "dayparty")
-Hashtag.create(event_id: e2.id, tag: "brunch")
-Hashtag.create(event_id: e3.id, tag: "nightlife")
-Hashtag.create(event_id: e4.id, tag: "boatrides")
-Hashtag.create(event_id: e5.id, tag: "afterwork")
-Hashtag.create(event_id: e6.id, tag: "arts")
-Hashtag.create(event_id: e7.id, tag: "festivals")
-Hashtag.create(event_id: e8.id, tag: "concerts")
+Hashtag.create(event_id: Event.all.sample.id, tag: "dayparty")
+Hashtag.create(event_id: Event.all.sample.id, tag: "brunch")
+Hashtag.create(event_id: Event.all.sample.id, tag: "nightlife")
+Hashtag.create(event_id: Event.all.sample.id, tag: "boatrides")
+Hashtag.create(event_id: Event.all.sample.id, tag: "afterwork")
+Hashtag.create(event_id: Event.all.sample.id, tag: "arts")
+Hashtag.create(event_id: Event.all.sample.id, tag: "festivals")
+Hashtag.create(event_id: Event.all.sample.id, tag: "concerts")
 
 Hashtag.create(event_id: Event.all.sample.id, tag: "newyork")
 Hashtag.create(event_id: Event.all.sample.id, tag: "nyc")
