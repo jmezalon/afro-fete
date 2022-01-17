@@ -1,3 +1,48 @@
-.event-list-container {
+.mini-cards-container {
     text-align: center;
+}
+
+.event-list-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 92%;
+    margin: auto;
+}
+
+.card-container {
+    text-align: center;
+    width: 30%;
+    margin: 1% 1% 1.5% 1%;
+    border: 1px solid rgb(201, 199, 199);
+    border-radius: 5px;
+}
+
+.card-container > section > img {
+    width: 95%;
+    height: 140px;
+    margin: 2% 0;   
+}
+
+#bottom-event-card-section {
+    display: flex;
+    margin: 0 3%;
+}
+
+#event-card-left-section {
+    margin-right: 4%;
+}
+
+#event-card-right-section {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+    margin-top: -6%;
+}
+
+#venue-name-and-likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
