@@ -1,13 +1,19 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import FooterSecondary from "./FooterSecondary";
 import EventTypes from "./landing/EventTypes";
 import "../styles/event.css";
 import EventList from "./landing/EventList";
+import { showEvents } from "../features/events/eventsSlice";
 
 function SingleEventType() {
-  const events = useSelector((state) => state.events.entities);
+  let isEvents = useSelector((state) => state.events.isEvents);
+  const dispatch = useDispatch();
   const params = useParams();
+
+  function handleGoBack() {
+    dispatch(showEvents(true));
+  }
 
   return (
     <div>
@@ -16,6 +22,7 @@ function SingleEventType() {
           <EventTypes />
         </section>
         <section className="right-category-section">
+          {!isEvents && <button onClick={handleGoBack}>back to Events</button>}
           <h2 id="event-category-title">
             <em>#{params.type}</em>
           </h2>

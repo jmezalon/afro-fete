@@ -1,24 +1,42 @@
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "../../styles/event.css";
+import { showEvents } from "../../features/events/eventsSlice";
 
-function MiniEventCards({ event }) {
-  console.log(event.date);
+function MiniEventCards({ event, handleSingleEventClick }) {
+  const dispatch = useDispatch();
+
+  function onSingleEventClick(id) {
+    dispatch(showEvents(false));
+    handleSingleEventClick(id);
+  }
+
   return (
-    <div className="card-container">
-      <section>
-        <img src={event.img_url} alt="event-card" />
-      </section>
-      <section id="bottom-event-card-section">
-        <div id="event-card-left-section">date</div>
-        <div id="event-card-right-section">
-          <section id="venue-name-and-likes">
-            <h2>{event.venue_name}</h2>
+    <div
+      className="card-container"
+      onClick={() => onSingleEventClick(event.id)}
+    >
+      <Link
+        to={`/category/${event.id}/${event.event_category.category
+          .replace(/\s/g, "")
+          .toLowerCase()}`}
+      >
+        <section>
+          <img src={event.img_url} alt="event-card" />
+        </section>
+        <section id="bottom-event-card-section">
+          <div id="event-card-left-section">date</div>
+          <div id="event-card-right-section">
+            <section id="venue-name-and-likes">
+              <h2>{event.venue_name}</h2>
 
-            <p>likes</p>
-          </section>
-          <p>address here</p>
-          <p>hashtag list here</p>
-        </div>
-      </section>
+              <p>likes</p>
+            </section>
+            <p>address here</p>
+            <p>hashtag list here</p>
+          </div>
+        </section>
+      </Link>
     </div>
   );
 }
