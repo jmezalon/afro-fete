@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import MiniEventCards from "./MiniEventCards";
 import "../../styles/event.css";
 import EventCard from "./EventCard";
+import TrendingHash from "./TrendingHash";
 
 function EventList() {
   const events = useSelector((state) => state.events.entities);
@@ -21,8 +22,6 @@ function EventList() {
 
   // need to get the show more button to work
 
-  // need to replace the width of that button to pixels instaead of percentage
-
   // need to delete the landing folder and create an event folder instead
 
   const eventsToBeSorted = [...events];
@@ -31,6 +30,9 @@ function EventList() {
   );
 
   const calenderFilter = ["TODAY", "TOMORROW", "THIS WEEKEND", "THIS MONTH"];
+
+  const marginLeft = params.type ? "-29.5%" : "";
+  const marginLeftHr = params.type ? "17%" : "";
 
   function handleSingleEventClick(id) {
     dispatch(fetchEvent(id));
@@ -62,11 +64,15 @@ function EventList() {
               />
             ))}
           </div>
-          <button id="show-more-button">Show more</button>
+          <button id="show-more-button" style={{ marginLeft: `${marginLeft}` }}>
+            Show more
+          </button>
         </div>
       ) : (
         <EventCard event={singleEvent} />
       )}
+      <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
+      <TrendingHash pt={params.type} />
     </div>
   );
 }

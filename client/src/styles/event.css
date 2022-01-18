@@ -51,6 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-top: -11px;
 }
 
 
@@ -71,8 +72,8 @@
 .left-category-section {
     width: 21%;
     padding: 10% 0;
-    margin-top: -87px;
-    margin-bottom: -69px;
+    margin-top: -84px;
+    margin-bottom: -67px;
     background: #F0F0F0;
     text-align: center;
 }
@@ -116,4 +117,80 @@
     display: flex;
     justify-content: space-evenly;
     width: 50%;
+}
+
+/* this is the single event card */
+
+.single-card-container {
+    text-align: center;
+    width: 70%;
+    margin: 1% 1% 6.5% 6%;
+    height: 550px;
+    border: 1px solid rgb(201, 199, 199);
+    border-radius: 5px;
+}
+
+.single-card-container > section > img {
+    width: 95%;
+    height: 240px;
+    margin: 2% 0;   
+}
+
+
+#single-bottom-event-card-section {
+    display: flex;
+    margin: 0 3%;
+}
+
+#single-event-card-left-section {
+    margin-right: 4%;
+}
+
+#single-event-card-right-section {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 88%;
+    margin-top: -6%;
+}
+
+#single-venue-name-and-likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: -37px;
+    margin-top: 2.7%;
+}
+
+#buy-ticket-button {
+    color: white;
+    border: solid 1px #ED4C4C;
+    border-radius: 16px;
+    width: 110px;
+    height: 29px;
+    background: #ED4C4C;
+    margin-bottom: 2%;
+}
+
+#back-to-events-button {
+    background: white;
+    border: solid 1px #ED4C4C;
+    border-radius: 16px;
+    width: 110px;
+    height: 29px;
+    color: #ED4C4C;
+    margin-bottom: 2%;
+}
+
+/* trending hash css */
+
+.hashtag-container {
+    text-align: center;
+}
+
+.hashtag-list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    color: #ED4C4C;
 }

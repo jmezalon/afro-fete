@@ -28,11 +28,6 @@ function Landing() {
         <section>
           <EventList />
         </section>
-        <hr />
-        <section>
-          {/* turn this into a component so singleeventtype could use it */}
-          <p>Trending Hashtags</p>
-        </section>
       </main>
       <FooterSecondary />
     </div>

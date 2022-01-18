@@ -8,16 +8,19 @@ function EventCard({ event }) {
       <section>
         <img src={event.img_url} alt="event-card" />
       </section>
-      <section id="bottom-event-card-section">
-        <div id="event-card-left-section">date</div>
-        <div id="event-card-right-section">
-          <section id="venue-name-and-likes">
+      <section id="single-bottom-event-card-section">
+        <div id="single-event-card-left-section">date</div>
+        <div id="single-event-card-right-section">
+          <section id="single-venue-name-and-likes">
             <h2>{event.venue_name}</h2>
 
             <p>likes</p>
           </section>
           <p>address here</p>
+          <h2 style={{ marginBottom: "-15px" }}>Description</h2>
+          <p>{event.description}</p>
           <p>hashtag list here</p>
+          <button id="buy-ticket-button">Buy Tickects</button>
         </div>
       </section>
     </div>
