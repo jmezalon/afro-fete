@@ -1,5 +1,5 @@
 import { fetchEvent, fetchEvents } from "../../features/events/eventsSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import MiniEventCards from "./MiniEventCards";
@@ -11,6 +11,7 @@ function EventList() {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
+  const [popularHash, setPopularHash] = useState([]);
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -20,7 +21,11 @@ function EventList() {
 
   // need to get the show more button to work
 
-  const popularHash = events.length > 0 && events[1].hashtags;
+  useEffect(() => {
+    fetch("/api/hashtags")
+      .then((r) => r.json())
+      .then(setPopularHash);
+  }, []);
 
   const eventsToBeSorted = [...events];
   let sortedEvents;

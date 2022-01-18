@@ -1,4 +1,4 @@
-function TrendingHash({ pt, popularHash = [] }) {
+function TrendingHash({ pt, popularHash }) {
   const mginLft = pt ? "-36%" : "";
   return (
     <div style={{ marginLeft: `${mginLft}` }} className="hashtag-container">

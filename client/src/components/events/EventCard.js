@@ -23,10 +23,9 @@ function EventCard({ event }) {
           </>
           <h2 style={{ marginBottom: "-15px" }}>Description</h2>
           <p>{event.description}</p>
-          <ul style={{ marginLeft: "-165px" }} className="hashtag-list">
-            {event.hashtags.map((hash) => (
-              <li key={hash.tag}>#{hash.tag}</li>
-            ))}
+          <ul className="single-event-hashtag-list">
+            {event.hashtags &&
+              event.hashtags.map((hash) => <li key={hash.tag}>#{hash.tag}</li>)}
           </ul>
           <button id="buy-ticket-button">Buy Tickects</button>
         </div>

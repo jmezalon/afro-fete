@@ -1,10 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "../styles/footer.css";
+import { showEvents } from "../features/events/eventsSlice";
 
 function Footer() {
+  const dispatch = useDispatch();
   return (
     <footer className="footer-container">
-      <div className="left-side-logo">
+      <div
+        onClick={() => dispatch(showEvents(true))}
+        className="left-side-logo"
+      >
         <NavLink exact to="/">
           <img
             className="logo"
