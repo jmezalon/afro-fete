@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import FooterSecondary from "./FooterSecondary";
-import EventTypes from "./landing/EventTypes";
-import "../styles/event.css";
-import EventList from "./landing/EventList";
-import { showEvents } from "../features/events/eventsSlice";
+import FooterSecondary from "../FooterSecondary";
+import EventTypes from "./EventTypes";
+import "../../styles/event.css";
+import EventList from "./EventList";
+import { showEvents } from "../../features/events/eventsSlice";
 
 function SingleEventType() {
   let isEvents = useSelector((state) => state.events.isEvents);

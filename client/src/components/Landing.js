@@ -1,7 +1,7 @@
-import EventTypes from "./EventTypes";
-import "../../styles/landing.css";
-import FooterSecondary from "../FooterSecondary";
-import EventList from "./EventList";
+import EventTypes from "./events/EventTypes";
+import "../styles/landing.css";
+import FooterSecondary from "./FooterSecondary";
+import EventList from "./events/EventList";
 
 function Landing() {
   return (
