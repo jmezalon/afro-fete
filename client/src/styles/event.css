@@ -193,4 +193,9 @@
     justify-content: center;
     list-style: none;
     color: #ED4C4C;
+    flex-wrap: wrap;
+}
+
+.hashtag-list > li {
+    margin: 0 5px;
 }

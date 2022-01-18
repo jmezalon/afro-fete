@@ -11,6 +11,8 @@ function MiniEventCards({ event, handleSingleEventClick }) {
     handleSingleEventClick(id);
   }
 
+  // console.log(event.hashtags);
+
   return (
     <div
       className="card-container"
@@ -33,7 +35,11 @@ function MiniEventCards({ event, handleSingleEventClick }) {
               <p>likes</p>
             </section>
             <p>address here</p>
-            <p>hashtag list here</p>
+            <ul style={{ marginLeft: "-85px" }} className="hashtag-list">
+              {event.hashtags.map((hash) => (
+                <li key={hash.id}>#{hash.tag}</li>
+              ))}
+            </ul>
           </div>
         </section>
       </Link>

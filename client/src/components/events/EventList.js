@@ -23,6 +23,7 @@ function EventList() {
   // need to get the show more button to work
 
   // need to delete the landing folder and create an event folder instead
+  const popularHash = events.length > 0 && events[1].hashtags;
 
   const eventsToBeSorted = [...events];
   const sortedEvents = eventsToBeSorted.sort(
@@ -72,7 +73,7 @@ function EventList() {
         <EventCard event={singleEvent} />
       )}
       <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
-      <TrendingHash pt={params.type} />
+      <TrendingHash popularHash={popularHash} pt={params.type} />
     </div>
   );
 }
