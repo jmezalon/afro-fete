@@ -10,6 +10,7 @@
     margin: auto;
 }
 
+
 .card-container {
     text-align: center;
     width: 30%;
@@ -45,4 +46,69 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+
+
+/* this is for the single category css */
+
+.single-category-container {
+    display: flex;
+    justify-content: space-around;
+    width: 88%;
+    margin: auto;
+}
+
+.single-cat-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.left-category-section {
+    width: 21%;
+    padding: 10% 0;
+    margin-top: -87px;
+    margin-bottom: -69px;
+    background: #F0F0F0;
+    text-align: center;
+}
+
+.right-category-section {
+    width: 70%;
+    padding: 0 2%;
+}
+
+#event-category-title {
+    font-size: 2.5em;
+    font-family: cursive;
+}
+
+.right-category-section > label > input {
+    width: 44.5%;
+    padding: 1% 2%;
+    border: solid 1px #ED4C4C;
+    border-radius: 22px;
+    background: #F0F0F0;
+}
+
+.cat-event-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 87%;
+    margin: auto;
+}
+
+.event-list--and-ul-container {
+    margin-left: -69px;
+}
+
+.cat-mini-cards-container {
+    text-align: center;
+    width: 90%;
+}
+
+.cat-calender-filter {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
 }

@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import Landing from "./components/landing/Landing";
+import SingleEventType from "./components/SingleEventType";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Singup from "./components/authentication/Signup";
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <Landing />
+        </Route>
+        <Route exact path="/category/:id/:type">
+          <SingleEventType />
         </Route>
         <Route exact path="/about-us">
           <About />

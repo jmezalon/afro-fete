@@ -4,7 +4,6 @@ import FooterSecondary from "../FooterSecondary";
 import EventList from "./EventList";
 
 function Landing() {
-  const calenderFilter = ["TODAY", "TOMORROW", "THIS WEEKEND", "THIS MONTH"];
   return (
     <div className="landing-container">
       <header>
@@ -27,15 +26,11 @@ function Landing() {
         </section>
         <hr />
         <section>
-          <ul className="calender-filter">
-            {calenderFilter.map((day) => (
-              <li key={day}>{day}</li>
-            ))}
-          </ul>
           <EventList />
         </section>
         <hr />
         <section>
+          {/* turn this into a component so singleeventtype could use it */}
           <p>Trending Hashtags</p>
         </section>
       </main>
