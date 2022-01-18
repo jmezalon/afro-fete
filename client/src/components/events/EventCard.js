@@ -16,7 +16,11 @@ function EventCard({ event }) {
 
             <p>likes</p>
           </section>
-          <p>address here</p>
+          <>
+            <p style={{ marginBottom: "-11px", color: "gray" }}>
+              {event.address} • {event.city}, {event.state} {event.zip}
+            </p>
+          </>
           <h2 style={{ marginBottom: "-15px" }}>Description</h2>
           <p>{event.description}</p>
           <ul style={{ marginLeft: "-165px" }} className="hashtag-list">

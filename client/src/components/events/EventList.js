@@ -18,17 +18,20 @@ function EventList() {
     dispatch(fetchEvents());
   }, [dispatch]);
 
-  // need to filter events when it is a single category, filter base on the id which i have in the params
-
   // need to get the show more button to work
 
-  // need to delete the landing folder and create an event folder instead
   const popularHash = events.length > 0 && events[1].hashtags;
 
   const eventsToBeSorted = [...events];
-  const sortedEvents = eventsToBeSorted.sort(
-    (a, b) => b.hash_count - a.hash_count
-  );
+  let sortedEvents;
+
+  if (!params.id) {
+    sortedEvents = eventsToBeSorted.sort((a, b) => b.hash_count - a.hash_count);
+  } else {
+    sortedEvents = events.filter(
+      (event) => event.event_category_id === parseInt(params.id)
+    );
+  }
 
   const calenderFilter = ["TODAY", "TOMORROW", "THIS WEEKEND", "THIS MONTH"];
 
@@ -61,6 +64,7 @@ function EventList() {
               <MiniEventCards
                 key={event.id}
                 event={event}
+                pt={params.type}
                 handleSingleEventClick={handleSingleEventClick}
               />
             ))}

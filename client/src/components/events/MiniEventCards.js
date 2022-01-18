@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "../../styles/event.css";
 import { showEvents } from "../../features/events/eventsSlice";
 
-function MiniEventCards({ event, handleSingleEventClick }) {
+function MiniEventCards({ event, handleSingleEventClick, pt }) {
   const dispatch = useDispatch();
 
   function onSingleEventClick(id) {
@@ -11,7 +11,7 @@ function MiniEventCards({ event, handleSingleEventClick }) {
     handleSingleEventClick(id);
   }
 
-  // console.log(event.hashtags);
+  const mrgTp = pt ? "-11px" : "";
 
   return (
     <div
@@ -29,12 +29,22 @@ function MiniEventCards({ event, handleSingleEventClick }) {
         <section id="bottom-event-card-section">
           <div id="event-card-left-section">date</div>
           <div id="event-card-right-section">
-            <section id="venue-name-and-likes">
+            <section
+              style={{ marginTop: `${mrgTp}` }}
+              id="venue-name-and-likes"
+            >
               <h2>{event.venue_name}</h2>
 
               <p>likes</p>
             </section>
-            <p>address here</p>
+            <>
+              <p style={{ marginBottom: "-11px", color: "gray" }}>
+                {event.address}
+              </p>
+              <p style={{ color: "gray" }}>
+                {event.city}, {event.state} {event.zip}
+              </p>
+            </>
             <ul style={{ marginLeft: "-85px" }} className="hashtag-list">
               {event.hashtags.map((hash) => (
                 <li key={hash.id}>#{hash.tag}</li>
