@@ -57,7 +57,7 @@ nav a:active {
     border-radius: 50%;
     text-align: center;
     margin-right: 2%;
-    margin-left: -4%;
+    margin-left: -10px;
 }
 
 #profile-init.active {

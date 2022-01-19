@@ -60,3 +60,85 @@
     color: white;
     border-radius: 17px;
 }
+
+#favorite-container {
+    background: #ED4C4C;
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    margin-top: 2%;
+    border-radius: 5px;
+    height: 250px;
+}
+
+#photo-posted {
+    text-align: center;
+    padding: 1px 0;
+    margin-top: 2%;
+    border-radius: 5px;
+    height: 500px;
+}
+
+/* this is for posting a photo */
+
+.post-photo-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: -3%;
+}
+
+.photo-section-and-form {
+    display: flex;
+    width: 55%;
+    height: 350px;
+    margin: auto;
+    padding: 15px 0;
+}
+
+.photo-section-and-form > img {
+    width: 31%;
+    height: 330px;
+    margin-right: 0px;
+    padding-top: 2%;
+}
+
+.photo-section-and-form > form {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 0 0 0;
+    width: 57%;
+    align-items: flex-start;
+    margin-left: 50px;
+    height: 315px;
+}
+
+.photo-section-and-form > form > label > input {
+    margin: 3% 0;
+    width: 330px;
+    padding: 4%;
+    border-radius: 5px;
+    background: #F0F0F0;
+    text-align: center;
+}
+
+#upload-button {
+    border: none;
+    background: #ED4C4C;
+    width: 358px;
+    padding: 4%;
+    color: white;
+    border-radius: 5px;
+}
+
+#confirm-button {
+    border: none;
+    background: rgb(60, 241, 60);
+    width: 358px;
+    padding: 4%;
+    color: white;
+    font-weight: bolder;
+    border-radius: 25px;
+}

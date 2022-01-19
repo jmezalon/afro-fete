@@ -4,6 +4,7 @@ import About from "./components/About";
 import Landing from "./components/Landing";
 import SingleEventType from "./components/events/SingleEventType";
 import Profile from "./components/Profile";
+import PostPhoto from "./components/PostPhoto";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import Singup from "./components/authentication/Signup";
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route exact path="/profile">
           <Profile />
+        </Route>
+        <Route exact path="/post-a-photo">
+          <PostPhoto />
         </Route>
         <Route exact path="/category/:id/:type">
           <SingleEventType />

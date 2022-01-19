@@ -65,14 +65,17 @@ function Profile() {
           </section>
         </div>
         <main>
-          <section>
-            <p>favorites</p>
+          <section id="favorite-container">
+            <p>Favorites</p>
+            <div>
+              <p>has the favorites and will need to srcoll to the left</p>
+            </div>
           </section>
-          <section>
-            <p>photo posted</p>
-          </section>
-          <section>
-            <p>maybe hashtag followed</p>
+          <section id="photo-posted">
+            <p>Photo Posted</p>
+            <div>
+              <p>will have a list of photos posted, scroll to the botoom</p>
+            </div>
           </section>
         </main>
       </div>
