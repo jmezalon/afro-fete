@@ -20,9 +20,9 @@ function MiniEventCards({ event, handleSingleEventClick, pt }) {
       onClick={() => onSingleEventClick(event.id)}
     >
       <Link
-        to={`/category/${event.id}/${event.event_category.category
-          .replace(/\s/g, "")
-          .toLowerCase()}`}
+        to={`/category/${
+          event.event_category.id
+        }/${event.event_category.category.replace(/\s/g, "").toLowerCase()}`}
       >
         <section>
           <img src={event.img_url} alt="event-card" />
@@ -36,7 +36,7 @@ function MiniEventCards({ event, handleSingleEventClick, pt }) {
             >
               <h2>{event.venue_name}</h2>
 
-              <p>likes</p>
+              <p>🤍</p>
             </section>
             <>
               <p style={{ marginBottom: "-11px", color: "gray" }}>

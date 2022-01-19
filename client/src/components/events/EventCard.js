@@ -14,7 +14,7 @@ function EventCard({ event }) {
           <section id="single-venue-name-and-likes">
             <h2>{event.venue_name}</h2>
 
-            <p>likes</p>
+            <p>🤍</p>
           </section>
           <>
             <p style={{ marginBottom: "-11px", color: "gray" }}>
