@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
+import { showEvents } from "../../features/events/eventsSlice";
 import { signupUser } from "../../features/users/usersSlice";
 import "../../styles/auth.css";
 
@@ -50,6 +51,7 @@ function Singup() {
       password_confirmation: "",
       isPromoter: false,
     });
+    dispatch(showEvents(true));
   }
 
   useEffect(() => {

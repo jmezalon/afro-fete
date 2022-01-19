@@ -53,6 +53,7 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-top: -2px;
 }
 
 
@@ -165,7 +166,7 @@
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: -37px;
-    margin-top: 2.7%;
+    margin-top: 1.7%;
 }
 
 #buy-ticket-button {

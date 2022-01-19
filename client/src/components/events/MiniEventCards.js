@@ -11,7 +11,7 @@ function MiniEventCards({ event, handleSingleEventClick, pt }) {
     handleSingleEventClick(id);
   }
 
-  const mrgTp = pt ? "-11px" : "";
+  const mrgTp = pt ? "-10px" : "";
   const width = pt ? "125%" : "364px";
 
   return (

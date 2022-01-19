@@ -43,6 +43,7 @@ function SingleEventType() {
               border: "none",
               width: "50%",
               margin: "3% 0",
+              marginLeft: "-8px",
             }}
           />
           <EventList />

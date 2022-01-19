@@ -3,6 +3,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { fetchUser } from "../../features/users/usersSlice";
 import { useSelector, useDispatch } from "react-redux";
 import "../../styles/auth.css";
+import { showEvents } from "../../features/events/eventsSlice";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -19,6 +20,7 @@ function Login() {
     dispatch(fetchUser({ username, password }));
     setUsername("");
     setPassword("");
+    dispatch(showEvents(true));
   }
 
   useEffect(() => {
