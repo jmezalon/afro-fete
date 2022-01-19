@@ -1,5 +1,7 @@
 .mini-cards-container {
     text-align: center;
+    width: 88%;
+    margin: auto;
 }
 
 .event-list-container {
@@ -199,7 +201,7 @@
     color: #ED4C4C;
     flex-wrap: wrap;
     width: 50%;
-    margin-left: 24%;
+    margin-left: 27%;
 }
 
 .single-event-hashtag-list {

@@ -12,7 +12,7 @@ function MiniEventCards({ event, handleSingleEventClick, pt }) {
   }
 
   const mrgTp = pt ? "-11px" : "";
-  const width = pt ? "125%" : "50%";
+  const width = pt ? "125%" : "364px";
 
   return (
     <div
@@ -47,7 +47,7 @@ function MiniEventCards({ event, handleSingleEventClick, pt }) {
               </p>
             </>
             <ul
-              style={{ marginLeft: "-85px", width: `${width}` }}
+              style={{ marginLeft: "-90px", width: `${width}` }}
               className="hashtag-list"
             >
               {event.hashtags.map((hash) => (
