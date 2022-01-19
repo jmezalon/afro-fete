@@ -1,0 +1,62 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: -3%;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    display: flex;
+    width: 50%;
+    height: 247px;
+    margin: auto;
+    padding: 15px 0;
+}
+
+.user-info > img {
+    width: 40%;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+
+#edit-icon {
+    width: 4%;
+    padding: 3px;
+    height: 25px;
+    margin: 205px 0 0 -124px;
+    background: #ED4C4C;
+}
+
+.user-info > form {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    width: 50%;
+    align-items: flex-start;
+    margin-left: 90px;
+}
+
+.user-info > form > label > input {
+    margin: 3% 0;
+    width: 292px;
+    padding: 2%;
+    border-radius: 5px;
+    background: #F0F0F0;
+
+}
+
+#save-button {
+    border: none;
+    background: rgb(201, 199, 199);
+    width: 310px;
+    padding: 2%;
+    color: white;
+    border-radius: 17px;
+}
