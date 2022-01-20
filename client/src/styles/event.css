@@ -193,6 +193,7 @@
 
 .hashtag-container {
     text-align: center;
+    width: 60%;
 }
 
 .hashtag-list {
@@ -201,8 +202,6 @@
     list-style: none;
     color: #ED4C4C;
     flex-wrap: wrap;
-    width: 50%;
-    margin-left: 27%;
 }
 
 .single-event-hashtag-list {
@@ -216,8 +215,10 @@
 
 .single-event-hashtag-list > li {
     margin: 0 5px;
+    cursor: pointer;
 }
 
 .hashtag-list > li {
     margin: 0 5px;
+    cursor: pointer;
 }

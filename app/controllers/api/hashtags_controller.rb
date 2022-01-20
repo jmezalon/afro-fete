@@ -6,9 +6,9 @@ class Api::HashtagsController < ApplicationController
         render json: Hashtag.all, status: :ok
     end
 
-    def show_events
-        render json: @hashtag.events, status: :ok
-    end
+    # def show_events
+    #     render json: @hashtag.events, status: :ok
+    # end
 
     def create 
         render json: Hashtag.create!(hashtag_params)

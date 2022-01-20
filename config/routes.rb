@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     post "/login", to:"sessions#create"
     delete '/logout', to:"sessions#destroy"
 
-    get '/events/tags', to:"events#show_tags"
-    get '/hashtags/events', to:"hashtags#show_events"
+    # get '/events/tags', to:"events#show_tags"
+    # get '/hashtags/events', to:"hashtags#show_events"
   end
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

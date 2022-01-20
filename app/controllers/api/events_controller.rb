@@ -7,9 +7,9 @@ class Api::EventsController < ApplicationController
         render json: Event.all, status: :ok
     end
 
-    def show_tags
-        render json: @event.hashtags, status: :ok
-    end
+    # def show_tags
+    #     render json: @event.hashtags, status: :ok
+    # end
 
     def show 
         render json: @event, status: :ok
