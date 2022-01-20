@@ -12,12 +12,21 @@ function EventList() {
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
   const [popularHash, setPopularHash] = useState([]);
+  // const [singleTag, setSingleTag] = useState({});
   const dispatch = useDispatch();
   const params = useParams();
 
   useEffect(() => {
     dispatch(fetchEvents());
   }, [dispatch]);
+
+  const filterTags = popularHash.filter((tag) => tag.events.length > 2);
+
+  // function handleTagClick(id) {
+  //   fetch("/api/hashtags/" + id)
+  //     .then((r) => r.json())
+  //     .then(setSingleTag)
+  // }
 
   // need to get the show more button to work
 
@@ -74,15 +83,20 @@ function EventList() {
               />
             ))}
           </div>
-          <button id="show-more-button" style={{ marginLeft: `${marginLeft}` }}>
-            Show more
-          </button>
+          {sortedEvents.length > 4 && (
+            <button
+              id="show-more-button"
+              style={{ marginLeft: `${marginLeft}` }}
+            >
+              Show more
+            </button>
+          )}
         </div>
       ) : (
         <EventCard event={singleEvent} />
       )}
       <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
-      <TrendingHash popularHash={popularHash} pt={params.type} />
+      <TrendingHash popularHash={filterTags} pt={params.type} />
     </div>
   );
 }
