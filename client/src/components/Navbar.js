@@ -2,7 +2,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/nav.css";
 import { userLogout } from "../features/users/usersSlice";
-import { showEvents } from "../features/events/eventsSlice";
+import { resetSingleTag, showEvents } from "../features/events/eventsSlice";
 
 function Navbar() {
   const history = useHistory();
@@ -30,7 +30,13 @@ function Navbar() {
 
   return (
     <nav className="nav-container">
-      <div onClick={() => dispatch(showEvents(true))} className="left-side-nav">
+      <div
+        onClick={() => {
+          dispatch(showEvents(true));
+          dispatch(resetSingleTag());
+        }}
+        className="left-side-nav"
+      >
         <NavLink exact to="/">
           <img
             className="logo"

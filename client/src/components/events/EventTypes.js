@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { showEvents } from "../../features/events/eventsSlice";
+import { resetSingleTag, showEvents } from "../../features/events/eventsSlice";
 
 function EventTypes() {
   const [types, setTypes] = useState([]);
@@ -17,7 +17,10 @@ function EventTypes() {
 
   return (
     <div
-      onClick={() => dispatch(showEvents(true))}
+      onClick={() => {
+        dispatch(showEvents(true));
+        dispatch(resetSingleTag());
+      }}
       className={params.type ? "single-cat-container" : "types-container"}
     >
       {types.map((t) => (

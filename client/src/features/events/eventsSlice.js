@@ -12,17 +12,30 @@ export const fetchEvent = createAsyncThunk("events/fetchEvent", async (id) => {
   return event;
 });
 
+export const fetchSingleTag = createAsyncThunk(
+  "events/fetchSingleTag",
+  async (id) => {
+    const r = await fetch(`/api/hashtags/${id}`);
+    const tag = await r.json();
+    return tag;
+  }
+);
+
 const eventsSlice = createSlice({
   name: "events",
   initialState: {
     entities: [],
     event: {},
+    singleTag: {},
     status: "idle",
     isEvents: true,
   },
   reducers: {
     showEvents(state, action) {
       state.isEvents = action.payload;
+    },
+    resetSingleTag(state) {
+      state.singleTag = {};
     },
   },
   extraReducers: {
@@ -40,8 +53,15 @@ const eventsSlice = createSlice({
       state.event = action.payload;
       state.status = "idle";
     },
+    [fetchSingleTag.pending](state) {
+      state.status = "loading";
+    },
+    [fetchSingleTag.fulfilled](state, action) {
+      state.singleTag = action.payload;
+      state.status = "idle";
+    },
   },
 });
 
-export const { showEvents } = eventsSlice.actions;
+export const { showEvents, resetSingleTag } = eventsSlice.actions;
 export default eventsSlice.reducer;

@@ -1,6 +1,7 @@
 import {
   fetchEvent,
   fetchEvents,
+  fetchSingleTag,
   showEvents,
 } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
@@ -18,7 +19,8 @@ function EventList() {
   const [popularHash, setPopularHash] = useState([]);
   let [count, setCount] = useState(3);
   let [showLess, setShowLess] = useState(false);
-  const [singleTag, setSingleTag] = useState({});
+  // const [singleTag, setSingleTag] = useState({});
+  const singleTag = useSelector((state) => state.events.singleTag);
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -35,13 +37,12 @@ function EventList() {
   const filterTags = popularHash.filter((tag) => tag.events.length > 2);
 
   function handleTagClick(id) {
-    fetch("/api/hashtags/" + id)
-      .then((r) => r.json())
-      .then(setSingleTag);
+    // fetch("/api/hashtags/" + id)
+    //   .then((r) => r.json())
+    //   .then(setSingleTag);
+    dispatch(fetchSingleTag(id));
+
     !isEvents && dispatch(showEvents(true));
-    return () => {
-      setSingleTag({});
-    };
   }
 
   const eventsToBeSorted = [...events];
