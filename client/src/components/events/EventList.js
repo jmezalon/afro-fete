@@ -36,11 +36,7 @@ function EventList() {
       .then(setPopularHash);
   }, []);
 
-  const filterTags = popularHash.filter((tag) => tag.events.length > 2);
-
-  function handleTagClick(id) {
-    dispatch(fetchSingleTag(id));
-
+  useEffect(() => {
     if (!params.id && singleTag.events) {
       history.push(
         `/category/${
@@ -49,7 +45,14 @@ function EventList() {
           .replace(/\s/g, "")
           .toLowerCase()}`
       );
-    } else if (!isEvents) {
+    }
+  }, [history, params.id, singleTag]);
+
+  const filterTags = popularHash.filter((tag) => tag.events.length > 2);
+
+  function handleTagClick(id) {
+    dispatch(fetchSingleTag(id));
+    if (!isEvents) {
       dispatch(showEvents(true));
     }
   }
