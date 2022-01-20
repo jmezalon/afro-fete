@@ -6,26 +6,30 @@ class Api::HashtagsController < ApplicationController
         render json: Hashtag.all, status: :ok
     end
 
-    def create
-        render json: Hashtag.create(hashtag_params), status: :created
+    def show_events
+        render json: @hashtag.events, status: :ok
+    end
+
+    def create 
+        render json: Hashtag.create!(hashtag_params)
     end
 
     def show 
-        render json: @tag, status: :ok
+        render json: @hashtag, status: :ok
     end
 
     def update 
-        @tag.update(hashtag_params)
-        render json: @tag, status: :accepted 
+        @hashtag.update(hashtag_params)
+        render json: @hashtag, status: :accepted 
     end
 
     private 
 
     def hashtag_params
-        params.permit(:event_id, :tag)
+        params.permit(:tag)
     end
 
     def find_tag
-       @tag = Hashtag.find(params[:id])
+       @hashtag = Hashtag.find(params[:id])
     end
 end

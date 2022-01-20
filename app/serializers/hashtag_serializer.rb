@@ -1,3 +1,4 @@
 class HashtagSerializer < ActiveModel::Serializer
-  attributes :id, :event_id, :tag
+  attributes :id, :tag
+  has_many :events 
 end

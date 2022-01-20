@@ -214,6 +214,10 @@
     margin-left: -39px;
 }
 
+.single-event-hashtag-list > li {
+    margin: 0 5px;
+}
+
 .hashtag-list > li {
     margin: 0 5px;
 }
