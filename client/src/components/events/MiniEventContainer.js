@@ -1,5 +1,9 @@
-import { fetchSingleTag, showEvents } from "../../features/events/eventsSlice";
+import {
+  fetchSingleTag,
+  resetSingleTag,
+} from "../../features/events/eventsSlice";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import MiniEventCards from "./MiniEventCards";
 
 function MiniEventContainer({
@@ -13,16 +17,23 @@ function MiniEventContainer({
   eventsToBeSorted,
   events,
   singleTag,
-  id,
   tagId,
-  tagSearch,
   foundSearchTag,
-  handleTagClick,
+  setId,
 }) {
-  const marginLeft = pt ? "-29.5%" : "";
+  const marginLeft = pt.type ? "-29.5%" : "";
   const dispatch = useDispatch();
 
   let sortedEvents = [];
+
+  useEffect(() => {
+    if (foundSearchTag && foundSearchTag.id) {
+      dispatch(fetchSingleTag(foundSearchTag.id));
+      setId(foundSearchTag.id);
+    } else if (!foundSearchTag) {
+      dispatch(resetSingleTag({}));
+    }
+  }, [dispatch, foundSearchTag, setId]);
 
   if (count <= eventsToBeSorted.length) {
     for (let i = 0; i < count; i++) {
@@ -30,37 +41,36 @@ function MiniEventContainer({
     }
   }
 
-  if (!id) {
+  if (!pt.id) {
     sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
   } else if (singleTag) {
     sortedEvents = singleTag;
-  } else if (tagSearch.length > 2 && foundSearchTag) {
-    dispatch(fetchSingleTag(foundSearchTag.id));
-    dispatch(showEvents(true));
-    console.log("ran");
-  } else if (!tagSearch) {
-    sortedEvents = events;
   } else {
     sortedEvents = events.filter(
-      (event) => event.event_category_id === parseInt(id)
+      (event) => event.event_category_id === parseInt(pt.id)
     );
   }
 
   return (
-    <div className={pt ? "cat-mini-cards-container" : "mini-cards-container"}>
-      <div className={pt ? "cat-event-list-container" : "event-list-container"}>
+    <div
+      className={pt.type ? "cat-mini-cards-container" : "mini-cards-container"}
+    >
+      <div
+        className={
+          pt.type ? "cat-event-list-container" : "event-list-container"
+        }
+      >
         {sortedEvents.map((event) => (
           <MiniEventCards
             key={event.id}
             event={event}
-            pt={pt}
+            pt={pt.type}
             handleSingleEventClick={handleSingleEventClick}
             tagId={tagId}
-            tagSearch={tagSearch}
           />
         ))}
       </div>
-      {sortedEvents.length >= count && !pt && !showLess && (
+      {sortedEvents.length >= count && !pt.type && !showLess && (
         <button
           onClick={handleMoreClick}
           id="show-more-button"

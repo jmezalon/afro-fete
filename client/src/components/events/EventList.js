@@ -12,7 +12,7 @@ import EventCard from "./EventCard";
 import TrendingHash from "./TrendingHash";
 import MiniEventContainer from "./MiniEventContainer";
 
-function EventList({ tagSearch }) {
+function EventList({ tagSearch, setTagSearch }) {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
@@ -61,11 +61,19 @@ function EventList({ tagSearch }) {
     return noHashword;
   }
 
-  let foundSearchTag = popularHash.find((t) => {
-    return t.tag.toLowerCase().includes(cleanWord(tagSearch).toLowerCase());
-  });
+  let foundSearchTag = {};
 
-  console.log(foundSearchTag);
+  if (tagSearch && tagSearch.length > 2) {
+    foundSearchTag = popularHash.find((t) => {
+      return t.tag.toLowerCase().includes(cleanWord(tagSearch).toLowerCase());
+    });
+  }
+
+  useEffect(() => {
+    if (tagSearch) {
+      dispatch(showEvents(true));
+    }
+  }, [dispatch, tagSearch]);
 
   function handleTagClick(id) {
     setId(id);
@@ -103,7 +111,7 @@ function EventList({ tagSearch }) {
       </ul>
       {isEvents ? (
         <MiniEventContainer
-          pt={params.type}
+          pt={params}
           handleSingleEventClick={handleSingleEventClick}
           count={count}
           showLess={showLess}
@@ -113,9 +121,8 @@ function EventList({ tagSearch }) {
           events={events}
           eventsToBeSorted={eventsToBeSorted}
           singleTag={singleTag.events}
-          id={params.id}
           tagId={id}
-          tagSearch={tagSearch}
+          setId={setId}
           foundSearchTag={foundSearchTag}
           handleTagClick={handleTagClick}
         />

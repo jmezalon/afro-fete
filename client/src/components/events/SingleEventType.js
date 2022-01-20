@@ -37,6 +37,7 @@ function SingleEventType() {
               type="text"
               value={tagSearch}
               onChange={(e) => setTagSearch(e.target.value)}
+              onBlur={() => setTagSearch("")}
               placeholder="🔍  search events by hashtag... ex #dayparty"
             />
           </label>
