@@ -10,6 +10,7 @@ function MiniEventContainer({
   setShowLess,
   eventsToBeSorted,
   events,
+  singleTag,
   id,
 }) {
   const marginLeft = pt ? "-29.5%" : "";
@@ -24,6 +25,8 @@ function MiniEventContainer({
 
   if (!id) {
     sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
+  } else if (singleTag) {
+    sortedEvents = singleTag;
   } else {
     sortedEvents = events.filter(
       (event) => event.event_category_id === parseInt(id)

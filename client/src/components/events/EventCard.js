@@ -1,6 +1,6 @@
 import "../../styles/event.css";
 
-function EventCard({ event }) {
+function EventCard({ event, handleTagClick }) {
   //   console.log(event.date);
 
   return (
@@ -25,7 +25,11 @@ function EventCard({ event }) {
           <p>{event.description}</p>
           <ul className="single-event-hashtag-list">
             {event.hashtags &&
-              event.hashtags.map((hash) => <li key={hash.tag}>#{hash.tag}</li>)}
+              event.hashtags.map((hash) => (
+                <li onClick={() => handleTagClick(hash.id)} key={hash.tag}>
+                  #{hash.tag}
+                </li>
+              ))}
           </ul>
           <button id="buy-ticket-button">Buy Tickects</button>
         </div>

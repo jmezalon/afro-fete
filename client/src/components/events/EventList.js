@@ -1,4 +1,8 @@
-import { fetchEvent, fetchEvents } from "../../features/events/eventsSlice";
+import {
+  fetchEvent,
+  fetchEvents,
+  showEvents,
+} from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +18,7 @@ function EventList() {
   const [popularHash, setPopularHash] = useState([]);
   let [count, setCount] = useState(3);
   let [showLess, setShowLess] = useState(false);
-  // const [singleTag, setSingleTag] = useState({});
+  const [singleTag, setSingleTag] = useState({});
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -22,19 +26,23 @@ function EventList() {
     dispatch(fetchEvents());
   }, [dispatch]);
 
-  const filterTags = popularHash.filter((tag) => tag.events.length > 2);
-
-  // function handleTagClick(id) {
-  //   fetch("/api/hashtags/" + id)
-  //     .then((r) => r.json())
-  //     .then(setSingleTag);
-  // }
-
   useEffect(() => {
     fetch("/api/hashtags")
       .then((r) => r.json())
       .then(setPopularHash);
   }, []);
+
+  const filterTags = popularHash.filter((tag) => tag.events.length > 2);
+
+  function handleTagClick(id) {
+    fetch("/api/hashtags/" + id)
+      .then((r) => r.json())
+      .then(setSingleTag);
+    !isEvents && dispatch(showEvents(true));
+    return () => {
+      setSingleTag({});
+    };
+  }
 
   const eventsToBeSorted = [...events];
 
@@ -73,13 +81,18 @@ function EventList() {
           setShowLess={setShowLess}
           events={events}
           eventsToBeSorted={eventsToBeSorted}
+          singleTag={singleTag.events}
           id={params.id}
         />
       ) : (
-        <EventCard event={singleEvent} />
+        <EventCard event={singleEvent} handleTagClick={handleTagClick} />
       )}
       <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
-      <TrendingHash popularHash={filterTags} pt={params.type} />
+      <TrendingHash
+        popularHash={filterTags}
+        pt={params.type}
+        handleTagClick={handleTagClick}
+      />
     </div>
   );
 }
