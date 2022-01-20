@@ -3,17 +3,12 @@ import {
   resetSingleTag,
 } from "../../features/events/eventsSlice";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MiniEventCards from "./MiniEventCards";
 
 function MiniEventContainer({
   pt,
   handleSingleEventClick,
-  count,
-  showLess,
-  handleMoreClick,
-  setCount,
-  setShowLess,
   eventsToBeSorted,
   events,
   singleTag,
@@ -21,6 +16,9 @@ function MiniEventContainer({
   foundSearchTag,
   setId,
 }) {
+  let [count, setCount] = useState(3);
+  let [showLess, setShowLess] = useState(false);
+
   const marginLeft = pt.type ? "-29.5%" : "";
   const dispatch = useDispatch();
 
@@ -49,6 +47,15 @@ function MiniEventContainer({
     sortedEvents = events.filter(
       (event) => event.event_category_id === parseInt(pt.id)
     );
+  }
+
+  function handleMoreClick() {
+    if (count + 3 <= eventsToBeSorted.length) {
+      setCount(count + 3);
+    } else {
+      setCount(eventsToBeSorted.length);
+      setShowLess(true);
+    }
   }
 
   return (

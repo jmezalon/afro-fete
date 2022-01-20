@@ -20,8 +20,8 @@ function EventList({ tagSearch, setTagSearch }) {
   const [id, setId] = useState("");
 
   const [popularHash, setPopularHash] = useState([]);
-  let [count, setCount] = useState(3);
-  let [showLess, setShowLess] = useState(false);
+  // let [count, setCount] = useState(3);
+  // let [showLess, setShowLess] = useState(false);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -91,15 +91,6 @@ function EventList({ tagSearch, setTagSearch }) {
     dispatch(fetchEvent(id));
   }
 
-  function handleMoreClick() {
-    if (count + 3 <= eventsToBeSorted.length) {
-      setCount(count + 3);
-    } else {
-      setCount(eventsToBeSorted.length);
-      setShowLess(true);
-    }
-  }
-
   const marginLeftHr = params.type ? "17%" : "";
 
   return (
@@ -113,11 +104,6 @@ function EventList({ tagSearch, setTagSearch }) {
         <MiniEventContainer
           pt={params}
           handleSingleEventClick={handleSingleEventClick}
-          count={count}
-          showLess={showLess}
-          handleMoreClick={handleMoreClick}
-          setCount={setCount}
-          setShowLess={setShowLess}
           events={events}
           eventsToBeSorted={eventsToBeSorted}
           singleTag={singleTag.events}
