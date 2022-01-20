@@ -30,7 +30,6 @@ function EventList() {
   //     .then(setSingleTag)
   // }
 
-  // need to get the show more button to work
 
   useEffect(() => {
     fetch("/api/hashtags")
@@ -72,10 +71,6 @@ function EventList() {
       setShowLess(true);
     }
   }
-
-  // function scrollTop() {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // }
 
   return (
     <div id="top" className="event-list--and-ul-container">
