@@ -5,7 +5,7 @@ import {
   showEvents,
 } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "../../styles/event.css";
 import EventCard from "./EventCard";
@@ -16,11 +16,13 @@ function EventList() {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
+  const singleTag = useSelector((state) => state.events.singleTag);
+
   const [popularHash, setPopularHash] = useState([]);
   let [count, setCount] = useState(3);
   let [showLess, setShowLess] = useState(false);
-  // const [singleTag, setSingleTag] = useState({});
-  const singleTag = useSelector((state) => state.events.singleTag);
+
+  const history = useHistory();
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -37,12 +39,19 @@ function EventList() {
   const filterTags = popularHash.filter((tag) => tag.events.length > 2);
 
   function handleTagClick(id) {
-    // fetch("/api/hashtags/" + id)
-    //   .then((r) => r.json())
-    //   .then(setSingleTag);
     dispatch(fetchSingleTag(id));
 
-    !isEvents && dispatch(showEvents(true));
+    if (!params.id && singleTag.events) {
+      history.push(
+        `/category/${
+          singleTag.events[0].event_category.id
+        }/${singleTag.events[0].event_category.category
+          .replace(/\s/g, "")
+          .toLowerCase()}`
+      );
+    } else if (!isEvents) {
+      dispatch(showEvents(true));
+    }
   }
 
   const eventsToBeSorted = [...events];
