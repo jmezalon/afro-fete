@@ -12,6 +12,8 @@ function EventList() {
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
   const [popularHash, setPopularHash] = useState([]);
+  let [count, setCount] = useState(3);
+  let [showLess, setShowLess] = useState(false);
   // const [singleTag, setSingleTag] = useState({});
   const dispatch = useDispatch();
   const params = useParams();
@@ -37,10 +39,16 @@ function EventList() {
   }, []);
 
   const eventsToBeSorted = [...events];
-  let sortedEvents;
+  let sortedEvents = [];
+
+  if (count <= eventsToBeSorted.length) {
+    for (let i = 0; i < count; i++) {
+      sortedEvents.push(eventsToBeSorted[i]);
+    }
+  }
 
   if (!params.id) {
-    sortedEvents = eventsToBeSorted.sort((a, b) => b.hash_count - a.hash_count);
+    sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
   } else {
     sortedEvents = events.filter(
       (event) => event.event_category_id === parseInt(params.id)
@@ -56,8 +64,21 @@ function EventList() {
     dispatch(fetchEvent(id));
   }
 
+  function handleMoreClick() {
+    if (count + 3 <= eventsToBeSorted.length) {
+      setCount(count + 3);
+    } else {
+      setCount(eventsToBeSorted.length);
+      setShowLess(true);
+    }
+  }
+
+  // function scrollTop() {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // }
+
   return (
-    <div className="event-list--and-ul-container">
+    <div id="top" className="event-list--and-ul-container">
       <ul className={params.type ? "cat-calender-filter" : "calender-filter"}>
         {calenderFilter.map((day) => (
           <li key={day}>{day}</li>
@@ -83,13 +104,28 @@ function EventList() {
               />
             ))}
           </div>
-          {sortedEvents.length > 4 && (
+          {sortedEvents.length >= count && !params.type && !showLess && (
             <button
+              onClick={handleMoreClick}
               id="show-more-button"
               style={{ marginLeft: `${marginLeft}` }}
             >
               Show more
             </button>
+          )}
+          {showLess && (
+            <a href="#top">
+              <button
+                onClick={() => {
+                  setCount(3);
+                  setShowLess(false);
+                }}
+                id="show-more-button"
+                style={{ marginLeft: `${marginLeft}` }}
+              >
+                Show less
+              </button>
+            </a>
           )}
         </div>
       ) : (
