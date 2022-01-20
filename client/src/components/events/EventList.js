@@ -2,10 +2,10 @@ import { fetchEvent, fetchEvents } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import MiniEventCards from "./MiniEventCards";
 import "../../styles/event.css";
 import EventCard from "./EventCard";
 import TrendingHash from "./TrendingHash";
+import MiniEventContainer from "./MiniEventContainer";
 
 function EventList() {
   const events = useSelector((state) => state.events.entities);
@@ -27,9 +27,8 @@ function EventList() {
   // function handleTagClick(id) {
   //   fetch("/api/hashtags/" + id)
   //     .then((r) => r.json())
-  //     .then(setSingleTag)
+  //     .then(setSingleTag);
   // }
-
 
   useEffect(() => {
     fetch("/api/hashtags")
@@ -38,26 +37,8 @@ function EventList() {
   }, []);
 
   const eventsToBeSorted = [...events];
-  let sortedEvents = [];
-
-  if (count <= eventsToBeSorted.length) {
-    for (let i = 0; i < count; i++) {
-      sortedEvents.push(eventsToBeSorted[i]);
-    }
-  }
-
-  if (!params.id) {
-    sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
-  } else {
-    sortedEvents = events.filter(
-      (event) => event.event_category_id === parseInt(params.id)
-    );
-  }
 
   const calenderFilter = ["TODAY", "TOMORROW", "THIS WEEKEND", "THIS MONTH"];
-
-  const marginLeft = params.type ? "-29.5%" : "";
-  const marginLeftHr = params.type ? "17%" : "";
 
   function handleSingleEventClick(id) {
     dispatch(fetchEvent(id));
@@ -72,6 +53,8 @@ function EventList() {
     }
   }
 
+  const marginLeftHr = params.type ? "17%" : "";
+
   return (
     <div id="top" className="event-list--and-ul-container">
       <ul className={params.type ? "cat-calender-filter" : "calender-filter"}>
@@ -80,49 +63,18 @@ function EventList() {
         ))}
       </ul>
       {isEvents ? (
-        <div
-          className={
-            params.type ? "cat-mini-cards-container" : "mini-cards-container"
-          }
-        >
-          <div
-            className={
-              params.type ? "cat-event-list-container" : "event-list-container"
-            }
-          >
-            {sortedEvents.map((event) => (
-              <MiniEventCards
-                key={event.id}
-                event={event}
-                pt={params.type}
-                handleSingleEventClick={handleSingleEventClick}
-              />
-            ))}
-          </div>
-          {sortedEvents.length >= count && !params.type && !showLess && (
-            <button
-              onClick={handleMoreClick}
-              id="show-more-button"
-              style={{ marginLeft: `${marginLeft}` }}
-            >
-              Show more
-            </button>
-          )}
-          {showLess && (
-            <a href="#top">
-              <button
-                onClick={() => {
-                  setCount(3);
-                  setShowLess(false);
-                }}
-                id="show-more-button"
-                style={{ marginLeft: `${marginLeft}` }}
-              >
-                Show less
-              </button>
-            </a>
-          )}
-        </div>
+        <MiniEventContainer
+          pt={params.type}
+          handleSingleEventClick={handleSingleEventClick}
+          count={count}
+          showLess={showLess}
+          handleMoreClick={handleMoreClick}
+          setCount={setCount}
+          setShowLess={setShowLess}
+          events={events}
+          eventsToBeSorted={eventsToBeSorted}
+          id={params.id}
+        />
       ) : (
         <EventCard event={singleEvent} />
       )}

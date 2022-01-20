@@ -11,11 +11,11 @@ class Api::HashtagsController < ApplicationController
     # end
 
     def create 
-        render json: Hashtag.create!(hashtag_params)
+        render json: Hashtag.create!(hashtag_params), status: :created
     end
 
     def show 
-        render json: @hashtag, status: :ok
+        render json: @hashtag, serializer: EventTagSerializer, status: :ok
     end
 
     def update 
