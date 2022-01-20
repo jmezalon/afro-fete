@@ -17,6 +17,7 @@ function EventList() {
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
   const singleTag = useSelector((state) => state.events.singleTag);
+  const [id, setId] = useState("");
 
   const [popularHash, setPopularHash] = useState([]);
   let [count, setCount] = useState(3);
@@ -36,6 +37,8 @@ function EventList() {
       .then(setPopularHash);
   }, []);
 
+  // get current tag to highlight when we click on the tag... we have access to that tag id. maybe on click, change state/  / on the handleTagclick(id) {  }  / to receive the tag id. then id={id === tag.id ? "selected-tag": ""} / then for css #selected-tag { font-weight: bolder; text-decoration: underline}
+
   useEffect(() => {
     if (!params.id && singleTag.events) {
       history.push(
@@ -51,6 +54,7 @@ function EventList() {
   const filterTags = popularHash.filter((tag) => tag.events.length > 2);
 
   function handleTagClick(id) {
+    setId(id);
     dispatch(fetchSingleTag(id));
     if (!isEvents) {
       dispatch(showEvents(true));
@@ -96,15 +100,21 @@ function EventList() {
           eventsToBeSorted={eventsToBeSorted}
           singleTag={singleTag.events}
           id={params.id}
+          tagId={id}
         />
       ) : (
-        <EventCard event={singleEvent} handleTagClick={handleTagClick} />
+        <EventCard
+          event={singleEvent}
+          handleTagClick={handleTagClick}
+          tagId={id}
+        />
       )}
       <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
       <TrendingHash
         popularHash={filterTags}
         pt={params.type}
         handleTagClick={handleTagClick}
+        tagId={id}
       />
     </div>
   );

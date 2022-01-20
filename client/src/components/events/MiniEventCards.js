@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "../../styles/event.css";
 import { showEvents } from "../../features/events/eventsSlice";
 
-function MiniEventCards({ event, handleSingleEventClick, pt }) {
+function MiniEventCards({ event, handleSingleEventClick, pt, tagId }) {
   const dispatch = useDispatch();
 
   function onSingleEventClick(id) {
@@ -51,7 +51,12 @@ function MiniEventCards({ event, handleSingleEventClick, pt }) {
               className="hashtag-list"
             >
               {event.hashtags.map((hash) => (
-                <li key={hash.id}>#{hash.tag}</li>
+                <li
+                  className={tagId === hash.id ? "selected-tag" : ""}
+                  key={hash.id}
+                >
+                  #{hash.tag}
+                </li>
               ))}
             </ul>
           </div>

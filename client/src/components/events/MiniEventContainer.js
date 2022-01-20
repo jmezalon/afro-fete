@@ -12,6 +12,7 @@ function MiniEventContainer({
   events,
   singleTag,
   id,
+  tagId,
 }) {
   const marginLeft = pt ? "-29.5%" : "";
 
@@ -42,6 +43,7 @@ function MiniEventContainer({
             event={event}
             pt={pt}
             handleSingleEventClick={handleSingleEventClick}
+            tagId={tagId}
           />
         ))}
       </div>
