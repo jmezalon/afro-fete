@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
 import FooterSecondary from "../FooterSecondary";
 import EventTypes from "./EventTypes";
 import "../../styles/event.css";
@@ -7,6 +8,7 @@ import EventList from "./EventList";
 import { showEvents } from "../../features/events/eventsSlice";
 
 function SingleEventType() {
+  const [tagSearch, setTagSearch] = useState("");
   let isEvents = useSelector((state) => state.events.isEvents);
   const dispatch = useDispatch();
   const params = useParams();
@@ -33,6 +35,8 @@ function SingleEventType() {
           <label htmlFor="search-events">
             <input
               type="text"
+              value={tagSearch}
+              onChange={(e) => setTagSearch(e.target.value)}
               placeholder="🔍  search events by hashtag... ex #dayparty"
             />
           </label>
@@ -46,7 +50,7 @@ function SingleEventType() {
               marginLeft: "-8px",
             }}
           />
-          <EventList />
+          <EventList tagSearch={tagSearch} />
         </section>
       </main>
       <FooterSecondary />

@@ -1,3 +1,5 @@
+import { fetchSingleTag, showEvents } from "../../features/events/eventsSlice";
+import { useDispatch } from "react-redux";
 import MiniEventCards from "./MiniEventCards";
 
 function MiniEventContainer({
@@ -13,8 +15,12 @@ function MiniEventContainer({
   singleTag,
   id,
   tagId,
+  tagSearch,
+  foundSearchTag,
+  handleTagClick,
 }) {
   const marginLeft = pt ? "-29.5%" : "";
+  const dispatch = useDispatch();
 
   let sortedEvents = [];
 
@@ -28,6 +34,12 @@ function MiniEventContainer({
     sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
   } else if (singleTag) {
     sortedEvents = singleTag;
+  } else if (tagSearch.length > 2 && foundSearchTag) {
+    dispatch(fetchSingleTag(foundSearchTag.id));
+    dispatch(showEvents(true));
+    console.log("ran");
+  } else if (!tagSearch) {
+    sortedEvents = events;
   } else {
     sortedEvents = events.filter(
       (event) => event.event_category_id === parseInt(id)
@@ -44,6 +56,7 @@ function MiniEventContainer({
             pt={pt}
             handleSingleEventClick={handleSingleEventClick}
             tagId={tagId}
+            tagSearch={tagSearch}
           />
         ))}
       </div>

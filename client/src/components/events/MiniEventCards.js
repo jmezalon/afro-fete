@@ -3,7 +3,13 @@ import { useDispatch } from "react-redux";
 import "../../styles/event.css";
 import { showEvents } from "../../features/events/eventsSlice";
 
-function MiniEventCards({ event, handleSingleEventClick, pt, tagId }) {
+function MiniEventCards({
+  event,
+  handleSingleEventClick,
+  pt,
+  tagId,
+  tagSearch,
+}) {
   const dispatch = useDispatch();
 
   function onSingleEventClick(id) {

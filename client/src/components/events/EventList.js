@@ -12,7 +12,7 @@ import EventCard from "./EventCard";
 import TrendingHash from "./TrendingHash";
 import MiniEventContainer from "./MiniEventContainer";
 
-function EventList() {
+function EventList({ tagSearch }) {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
@@ -37,8 +37,6 @@ function EventList() {
       .then(setPopularHash);
   }, []);
 
-  // get current tag to highlight when we click on the tag... we have access to that tag id. maybe on click, change state/  / on the handleTagclick(id) {  }  / to receive the tag id. then id={id === tag.id ? "selected-tag": ""} / then for css #selected-tag { font-weight: bolder; text-decoration: underline}
-
   useEffect(() => {
     if (!params.id && singleTag.events) {
       history.push(
@@ -52,6 +50,22 @@ function EventList() {
   }, [history, params.id, singleTag]);
 
   const filterTags = popularHash.filter((tag) => tag.events.length > 2);
+
+  function cleanWord(word) {
+    let noHashword;
+    if (word.split("").includes("#")) {
+      noHashword = word.slice(1, word.length);
+    } else {
+      noHashword = word;
+    }
+    return noHashword;
+  }
+
+  let foundSearchTag = popularHash.find((t) => {
+    return t.tag.toLowerCase().includes(cleanWord(tagSearch).toLowerCase());
+  });
+
+  console.log(foundSearchTag);
 
   function handleTagClick(id) {
     setId(id);
@@ -101,12 +115,16 @@ function EventList() {
           singleTag={singleTag.events}
           id={params.id}
           tagId={id}
+          tagSearch={tagSearch}
+          foundSearchTag={foundSearchTag}
+          handleTagClick={handleTagClick}
         />
       ) : (
         <EventCard
           event={singleEvent}
           handleTagClick={handleTagClick}
           tagId={id}
+          tagSearch={tagSearch}
         />
       )}
       <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />

@@ -1,6 +1,6 @@
 import "../../styles/event.css";
 
-function EventCard({ event, tagId, handleTagClick }) {
+function EventCard({ event, tagSeach, tagId, handleTagClick }) {
   //   console.log(event.date);
 
   return (
