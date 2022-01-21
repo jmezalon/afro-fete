@@ -1,14 +1,17 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "../styles/footer.css";
-import { showEvents } from "../features/events/eventsSlice";
+import { resetSingleTag, showEvents } from "../features/events/eventsSlice";
 
 function Footer() {
   const dispatch = useDispatch();
   return (
     <footer className="footer-container">
       <div
-        onClick={() => dispatch(showEvents(true))}
+        onClick={() => {
+          dispatch(showEvents(true));
+          dispatch(resetSingleTag());
+        }}
         className="left-side-logo"
       >
         <NavLink exact to="/">

@@ -1,4 +1,5 @@
 import {
+  fetchEvent,
   fetchSingleTag,
   resetSingleTag,
 } from "../../features/events/eventsSlice";
@@ -8,7 +9,6 @@ import MiniEventCards from "./MiniEventCards";
 
 function MiniEventContainer({
   pt,
-  handleSingleEventClick,
   eventsToBeSorted,
   events,
   singleTag,
@@ -47,6 +47,10 @@ function MiniEventContainer({
     sortedEvents = events.filter(
       (event) => event.event_category_id === parseInt(pt.id)
     );
+  }
+
+  function handleSingleEventClick(id) {
+    dispatch(fetchEvent(id));
   }
 
   function handleMoreClick() {

@@ -1,5 +1,4 @@
 import {
-  fetchEvent,
   fetchEvents,
   fetchSingleTag,
   showEvents,
@@ -20,8 +19,6 @@ function EventList({ tagSearch, setTagSearch }) {
   const [id, setId] = useState("");
 
   const [popularHash, setPopularHash] = useState([]);
-  // let [count, setCount] = useState(3);
-  // let [showLess, setShowLess] = useState(false);
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -87,10 +84,6 @@ function EventList({ tagSearch, setTagSearch }) {
 
   const calenderFilter = ["TODAY", "TOMORROW", "THIS WEEKEND", "THIS MONTH"];
 
-  function handleSingleEventClick(id) {
-    dispatch(fetchEvent(id));
-  }
-
   const marginLeftHr = params.type ? "17%" : "";
 
   return (
@@ -103,7 +96,6 @@ function EventList({ tagSearch, setTagSearch }) {
       {isEvents ? (
         <MiniEventContainer
           pt={params}
-          handleSingleEventClick={handleSingleEventClick}
           events={events}
           eventsToBeSorted={eventsToBeSorted}
           singleTag={singleTag.events}
