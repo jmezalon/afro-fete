@@ -10,11 +10,13 @@ import "../../styles/event.css";
 import EventCard from "./EventCard";
 import TrendingHash from "./TrendingHash";
 import MiniEventContainer from "./MiniEventContainer";
+import { fetchFavorites } from "../../features/favorites/favoritesSlice";
 
 function EventList({ tagSearch, setTagSearch }) {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
+  const user = useSelector((state) => state.users.user);
   const singleTag = useSelector((state) => state.events.singleTag);
   const [id, setId] = useState("");
 
@@ -33,6 +35,12 @@ function EventList({ tagSearch, setTagSearch }) {
       .then((r) => r.json())
       .then(setPopularHash);
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(fetchFavorites());
+    }
+  }, [user, dispatch]);
 
   useEffect(() => {
     if (!params.id && singleTag.events) {
