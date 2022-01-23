@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "../../styles/event.css";
 import { showEvents } from "../../features/events/eventsSlice";
 
-function MiniEventCards({
-  event,
-  handleSingleEventClick,
-  pt,
-  tagId,
-  tagSearch,
-}) {
+function MiniEventCards({ event, handleSingleEventClick, pt, tagId }) {
   const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const user = useSelector((state) => state.users.user);
 
   function onSingleEventClick(id) {
     dispatch(showEvents(false));
@@ -19,6 +15,14 @@ function MiniEventCards({
 
   const mrgTp = pt ? "-10px" : "";
   const width = pt ? "125%" : "364px";
+
+  let heart;
+  function findFav() {
+    if (!!event.id && favorites !== undefined && user) {
+      heart = favorites.find((f) => f.event_id === event.id);
+    }
+    return heart;
+  }
 
   return (
     <div
@@ -42,7 +46,8 @@ function MiniEventCards({
             >
               <h2>{event.venue_name}</h2>
 
-              <p>🤍</p>
+              {!!!findFav() && heart === undefined && <p>🤍</p>}
+              {!!findFav() && <p>🧡</p>}
             </section>
             <>
               <p style={{ marginBottom: "-11px", color: "gray" }}>

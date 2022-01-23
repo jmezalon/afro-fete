@@ -17,7 +17,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(fetchUser({ username, password }));
+    dispatch(fetchUser({ username: username.toLowerCase(), password }));
     setUsername("");
     setPassword("");
     dispatch(showEvents(true));

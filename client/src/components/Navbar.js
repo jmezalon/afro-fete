@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "../styles/nav.css";
 import { userLogout } from "../features/users/usersSlice";
 import { resetSingleTag, showEvents } from "../features/events/eventsSlice";
+import { resetFavorite } from "../features/favorites/favoritesSlice";
 
 function Navbar() {
   const history = useHistory();
@@ -34,6 +35,7 @@ function Navbar() {
         onClick={() => {
           dispatch(showEvents(true));
           dispatch(resetSingleTag());
+          dispatch(resetFavorite());
         }}
         className="left-side-nav"
       >

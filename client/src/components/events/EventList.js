@@ -4,15 +4,18 @@ import {
   showEvents,
 } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "../../styles/event.css";
 import EventCard from "./EventCard";
 import TrendingHash from "./TrendingHash";
 import MiniEventContainer from "./MiniEventContainer";
-import { fetchFavorites } from "../../features/favorites/favoritesSlice";
+import {
+  fetchFavorites,
+  resetFavorite,
+} from "../../features/favorites/favoritesSlice";
 
-function EventList({ tagSearch, setTagSearch }) {
+function EventList({ tagSearch }) {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
@@ -23,12 +26,16 @@ function EventList({ tagSearch, setTagSearch }) {
   const [popularHash, setPopularHash] = useState([]);
 
   const history = useHistory();
+  const match = useRouteMatch();
   const dispatch = useDispatch();
   const params = useParams();
 
   useEffect(() => {
     dispatch(fetchEvents());
-  }, [dispatch]);
+    if (match.url === "/") {
+      dispatch(showEvents(true));
+    }
+  }, [dispatch, match.url]);
 
   useEffect(() => {
     fetch("/api/hashtags")
@@ -38,7 +45,9 @@ function EventList({ tagSearch, setTagSearch }) {
 
   useEffect(() => {
     if (user) {
-      dispatch(fetchFavorites());
+      user && dispatch(fetchFavorites());
+    } else {
+      dispatch(resetFavorite());
     }
   }, [user, dispatch]);
 

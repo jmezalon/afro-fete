@@ -38,6 +38,9 @@ const favoritesSlice = createSlice({
     onAddFav(state, action) {
       state.favorites = [...state.favorites, action.payload];
     },
+    resetFavorite(state) {
+      state.favorites = [];
+    },
   },
   extraReducers: {
     [fetchFavorites.pending](state) {
@@ -58,6 +61,6 @@ const favoritesSlice = createSlice({
   },
 });
 
-export const { onDeleteFav, onAddFav } = favoritesSlice.actions;
+export const { onDeleteFav, onAddFav, resetFavorite } = favoritesSlice.actions;
 
 export default favoritesSlice.reducer;

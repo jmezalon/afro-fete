@@ -1,12 +1,14 @@
 import "../../styles/event.css";
 import { useSelector, useDispatch } from "react-redux";
 import { onAddFav, onDeleteFav } from "../../features/favorites/favoritesSlice";
+import { useState } from "react";
 
 function EventCard({ event, tagId, handleTagClick }) {
   //   console.log(event.date);
-
+  const [errors, setErrors] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites);
+  const user = useSelector((state) => state.users.user);
 
   function deleteFav(id) {
     let favId = favorites.find((f) => f.event_id === id);
@@ -14,24 +16,38 @@ function EventCard({ event, tagId, handleTagClick }) {
       method: "DELETE",
     }).then(() => dispatch(onDeleteFav(favId.id)));
   }
+
   let heart;
   function findFav() {
-    if (!!event.id && favorites !== undefined) {
+    if (!!event.id && user && favorites !== undefined) {
       heart = favorites.find((f) => f.event_id === event.id);
     }
     return heart;
   }
 
   function handlePostLike(id) {
-    fetch("/api/favorites", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ event_id: id }),
-    })
-      .then((r) => r.json())
-      .then((data) => dispatch(onAddFav(data)));
+    user &&
+      fetch("/api/favorites", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ event_id: id }),
+      })
+        .then((r) => r.json())
+        .then((data) => dispatch(onAddFav(data)));
+
+    if (!user) {
+      setErrors(true);
+      clearError();
+    }
+  }
+
+  function clearError() {
+    const id = setTimeout(() => {
+      setErrors(false);
+    }, 2000);
+    return () => clearTimeout(id);
   }
 
   return (
@@ -62,6 +78,11 @@ function EventCard({ event, tagId, handleTagClick }) {
               </p>
             )}
           </section>
+          {errors ? (
+            <p style={{ color: "red" }}>Sign up to add to favorites!</p>
+          ) : (
+            ""
+          )}
           <>
             <p style={{ marginBottom: "-11px", color: "gray" }}>
               {event.address} • {event.city}, {event.state} {event.zip}
