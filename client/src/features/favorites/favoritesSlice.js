@@ -9,21 +9,6 @@ export const fetchFavorites = createAsyncThunk(
   }
 );
 
-// export const postFavorites = createAsyncThunk(
-//   "favorites/postFavorites",
-//   async (fav) => {
-//     const r = await fetch("/api/favorites", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(fav),
-//     });
-//     const data = await r.json();
-//     return data;
-//   }
-// );
-
 const favoritesSlice = createSlice({
   name: "favorites",
   initialState: {
@@ -49,15 +34,6 @@ const favoritesSlice = createSlice({
     [fetchFavorites.fulfilled](state, action) {
       state.favorites = action.payload;
     },
-    // [postFavorites.pending](state) {
-    //   state.status = "loading";
-    // },
-    // [postFavorites.fulfilled](state, action) {
-    //   console.log(action.payload, "before");
-    //   state.favorites = action.payload;
-    //   console.log(state.favorites, "after");
-    //   state.status = "idle";
-    // },
   },
 });
 

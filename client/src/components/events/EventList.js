@@ -126,7 +126,6 @@ function EventList({ tagSearch }) {
           event={singleEvent}
           handleTagClick={handleTagClick}
           tagId={id}
-          tagSearch={tagSearch}
         />
       )}
       <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
