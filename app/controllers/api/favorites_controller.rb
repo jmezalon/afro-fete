@@ -1,5 +1,6 @@
 class Api::FavoritesController < ApplicationController
-    before_action :current_user, only: [:destroy, :create]
+    before_action :current_user, only: [:destroy, :create, :index]
+    skip_before_action :authorize, only: [:index] 
 
     def index
         render json: @current_user.favorites, status: :ok

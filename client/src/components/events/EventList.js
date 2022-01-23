@@ -46,9 +46,10 @@ function EventList({ tagSearch }) {
   useEffect(() => {
     if (user) {
       user && dispatch(fetchFavorites());
-    } else {
-      dispatch(resetFavorite());
     }
+    return () => {
+      dispatch(resetFavorite());
+    };
   }, [user, dispatch]);
 
   useEffect(() => {
