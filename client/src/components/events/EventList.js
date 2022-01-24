@@ -29,8 +29,6 @@ function EventList({ tagSearch }) {
   const popularHash = useSelector((state) => state.hashtags.hashtags);
   const [id, setId] = useState("");
 
-  // const [popularHash, resetPopularHash] = useState([]);
-
   const history = useHistory();
   const match = useRouteMatch();
   const dispatch = useDispatch();
@@ -44,9 +42,6 @@ function EventList({ tagSearch }) {
   }, [dispatch, match.url]);
 
   useEffect(() => {
-    // fetch("/api/hashtags")
-    //   .then((r) => r.json())
-    //   .then(resetPopularHash);
     dispatch(fetchHashtags());
     return () => {
       dispatch(resetPopularHash());

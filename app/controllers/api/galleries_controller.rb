@@ -5,6 +5,10 @@ class Api::GalleriesController < ApplicationController
         render json: Gallery.all, status: :ok
     end
 
+    def user_index
+        render json: @current_user.galleries, status: :ok
+    end
+
     def create
         render json: @current_user.galleries.create!(gallery_params), status: :created
     end
