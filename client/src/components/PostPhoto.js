@@ -49,7 +49,7 @@ function PostPhoto() {
     }
   }
 
-  const displayNone = tagLeft === 0 ? "none" : "block";
+  const displayNone = tagLeft <= 0 ? "none" : "block";
 
   return (
     <>
@@ -85,7 +85,13 @@ function PostPhoto() {
                   tags.map((t) => (
                     <div className="selected-tags" key={t.id}>
                       <p>{t.tag}</p>
-                      <p id="delete-tag" onClick={() => handleDeleteTag(t.id)}>
+                      <p
+                        id="delete-tag"
+                        onClick={() => {
+                          handleDeleteTag(t.id);
+                          setTagLeft(() => tagLeft + 1);
+                        }}
+                      >
                         x
                       </p>
                     </div>
