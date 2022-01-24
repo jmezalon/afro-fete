@@ -1,7 +1,7 @@
 import {
   fetchSingleTag,
   resetSingleTag,
-} from "../../features/events/eventsSlice";
+} from "../../features/hashtags/hashtagsSlice";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import MiniEventCards from "./MiniEventCards";

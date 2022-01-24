@@ -2,7 +2,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/nav.css";
 import { userLogout } from "../features/users/usersSlice";
-import { resetSingleTag, showEvents } from "../features/events/eventsSlice";
+import { showEvents } from "../features/events/eventsSlice";
+import { resetSingleTag } from "../features/hashtags/hashtagsSlice";
+
 import { resetFavorite } from "../features/favorites/favoritesSlice";
 
 function Navbar() {

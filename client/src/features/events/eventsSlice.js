@@ -12,21 +12,21 @@ export const fetchEvent = createAsyncThunk("events/fetchEvent", async (id) => {
   return event;
 });
 
-export const fetchSingleTag = createAsyncThunk(
-  "events/fetchSingleTag",
-  async (id) => {
-    const r = await fetch(`/api/hashtags/${id}`);
-    const tag = await r.json();
-    return tag;
-  }
-);
+// export const fetchSingleTag = createAsyncThunk(
+//   "events/fetchSingleTag",
+//   async (id) => {
+//     const r = await fetch(`/api/hashtags/${id}`);
+//     const tag = await r.json();
+//     return tag;
+//   }
+// );
 
 const eventsSlice = createSlice({
   name: "events",
   initialState: {
     entities: [],
     event: {},
-    singleTag: {},
+    // singleTag: {},
     status: "idle",
     isEvents: true,
   },
@@ -34,9 +34,9 @@ const eventsSlice = createSlice({
     showEvents(state, action) {
       state.isEvents = action.payload;
     },
-    resetSingleTag(state) {
-      state.singleTag = {};
-    },
+    // resetSingleTag(state) {
+    //   state.singleTag = {};
+    // },
   },
   extraReducers: {
     [fetchEvents.pending](state) {
@@ -53,13 +53,13 @@ const eventsSlice = createSlice({
       state.event = action.payload;
       state.status = "idle";
     },
-    [fetchSingleTag.pending](state) {
-      state.status = "loading";
-    },
-    [fetchSingleTag.fulfilled](state, action) {
-      state.singleTag = action.payload;
-      state.status = "idle";
-    },
+    // [fetchSingleTag.pending](state) {
+    //   state.status = "loading";
+    // },
+    // [fetchSingleTag.fulfilled](state, action) {
+    //   state.singleTag = action.payload;
+    //   state.status = "idle";
+    // },
   },
 });
 

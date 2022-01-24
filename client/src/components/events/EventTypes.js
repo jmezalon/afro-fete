@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { resetSingleTag, showEvents } from "../../features/events/eventsSlice";
+import { showEvents } from "../../features/events/eventsSlice";
+import { resetSingleTag } from "../../features/hashtags/hashtagsSlice";
 
 function EventTypes() {
   const [types, setTypes] = useState([]);

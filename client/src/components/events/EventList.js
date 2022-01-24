@@ -1,6 +1,6 @@
 import {
   fetchEvents,
-  fetchSingleTag,
+  // fetchSingleTag,
   showEvents,
 } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
@@ -14,16 +14,22 @@ import {
   fetchFavorites,
   resetFavorite,
 } from "../../features/favorites/favoritesSlice";
+import {
+  fetchHashtags,
+  resetPopularHash,
+  fetchSingleTag,
+} from "../../features/hashtags/hashtagsSlice";
 
 function EventList({ tagSearch }) {
   const events = useSelector((state) => state.events.entities);
   const isEvents = useSelector((state) => state.events.isEvents);
   const singleEvent = useSelector((state) => state.events.event);
   const user = useSelector((state) => state.users.user);
-  const singleTag = useSelector((state) => state.events.singleTag);
+  const singleTag = useSelector((state) => state.hashtags.singleTag);
+  const popularHash = useSelector((state) => state.hashtags.hashtags);
   const [id, setId] = useState("");
 
-  const [popularHash, setPopularHash] = useState([]);
+  // const [popularHash, resetPopularHash] = useState([]);
 
   const history = useHistory();
   const match = useRouteMatch();
@@ -38,10 +44,14 @@ function EventList({ tagSearch }) {
   }, [dispatch, match.url]);
 
   useEffect(() => {
-    fetch("/api/hashtags")
-      .then((r) => r.json())
-      .then(setPopularHash);
-  }, []);
+    // fetch("/api/hashtags")
+    //   .then((r) => r.json())
+    //   .then(resetPopularHash);
+    dispatch(fetchHashtags());
+    return () => {
+      dispatch(resetPopularHash());
+    };
+  }, [dispatch]);
 
   useEffect(() => {
     if (user) {

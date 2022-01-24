@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "../styles/footer.css";
-import { resetSingleTag, showEvents } from "../features/events/eventsSlice";
+import { showEvents } from "../features/events/eventsSlice";
+import { resetSingleTag } from "../features/hashtags/hashtagsSlice";
 
 function Footer() {
   const dispatch = useDispatch();

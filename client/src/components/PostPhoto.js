@@ -4,6 +4,7 @@ import "../styles/profile.css";
 
 function PostPhoto() {
   const user = useSelector((state) => state.users.user);
+  // const hashtag
   console.log(user);
   return (
     <>
