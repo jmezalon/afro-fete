@@ -48,6 +48,10 @@ main > section > h6 {
     margin-bottom: 2%;
 }
 
+.types-container > a > img:hover {
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
+}
+
 .types-container > a > img {
     margin: 0.5% 1%;
 }
@@ -72,6 +76,12 @@ main > section > h6 {
     height: 29px;
     color: #ED4C4C;
     margin-bottom: 2%;
+}
+
+#show-more-button:hover {
+    color: white;
+    background: #ED4c4c;
+    cursor: pointer;
 }
 
 main > section > p {

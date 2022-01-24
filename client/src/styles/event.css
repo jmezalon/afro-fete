@@ -22,6 +22,10 @@
     background: white;
 }
 
+.card-container:hover {
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
+}
+
 .card-container > a > section > img {
     width: 95%;
     height: 140px;
@@ -70,6 +74,10 @@
 .single-cat-container {
     display: flex;
     flex-direction: column;
+}
+
+.single-cat-container > a > img:hover {
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
 }
 
 .left-category-section {
@@ -188,6 +196,12 @@
     height: 29px;
     color: #ED4C4C;
     margin-left: -5%;
+}
+
+#back-to-events-button:hover {
+    color: white;
+    background: #ED4c4c;
+    cursor: pointer;
 }
 
 /* trending hash css */
