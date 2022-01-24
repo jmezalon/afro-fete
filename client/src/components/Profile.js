@@ -1,9 +1,33 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import FooterSecondary from "./FooterSecondary";
 import "../styles/profile.css";
+import MiniEventCards from "./events/MiniEventCards";
+import {
+  fetchFavorites,
+  resetFavorite,
+} from "../features/favorites/favoritesSlice";
+import { useEffect } from "react";
 
 function Profile() {
   const user = useSelector((state) => state.users.user);
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const events = useSelector((state) => state.events.entities);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (user) {
+      user && dispatch(fetchFavorites());
+    }
+    return () => {
+      dispatch(resetFavorite());
+    };
+  }, [dispatch, user]);
+
+  let favList = events.filter((e) =>
+    favorites.find((f) => f.event_id === e.id)
+  );
+
   return (
     <>
       <div className="profile-container">
@@ -30,7 +54,6 @@ function Profile() {
                 <input
                   type="text"
                   name="username"
-                  id=""
                   placeholder={user && user.username}
                 />
               </label>
@@ -38,7 +61,6 @@ function Profile() {
                 <input
                   type="text"
                   name="full_name"
-                  id=""
                   placeholder={user && user.full_name}
                 />
               </label>
@@ -46,7 +68,6 @@ function Profile() {
                 <input
                   type="password"
                   name="password"
-                  id=""
                   placeholder="change password"
                 />
               </label>
@@ -54,7 +75,6 @@ function Profile() {
                 <input
                   type="password"
                   name="password_confirmation"
-                  id=""
                   placeholder="confirm password"
                 />
               </label>
@@ -67,14 +87,16 @@ function Profile() {
         <main>
           <section id="favorite-container">
             <p>Favorites</p>
-            <div>
-              <p>has the favorites and will need to srcoll to the left</p>
+            <div className="fav-list-container">
+              {favList.map((f) => (
+                <MiniEventCards key={f.id} event={f} />
+              ))}
             </div>
           </section>
           <section id="photo-posted">
             <p>Photo Posted</p>
             <div>
-              <p>will have a list of photos posted, scroll to the botoom</p>
+              <p>has the photos and will need to srcoll to the left</p>
             </div>
           </section>
         </main>

@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "../../styles/event.css";
-import { showEvents } from "../../features/events/eventsSlice";
+import { fetchEvent, showEvents } from "../../features/events/eventsSlice";
 
-function MiniEventCards({ event, handleSingleEventClick, pt, tagId }) {
+function MiniEventCards({ event, pt, tagId }) {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites);
   const user = useSelector((state) => state.users.user);
 
   function onSingleEventClick(id) {
     dispatch(showEvents(false));
-    handleSingleEventClick(id);
+    dispatch(fetchEvent(id));
   }
 
   const mrgTp = pt ? "-10px" : "";

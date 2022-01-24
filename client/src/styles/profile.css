@@ -68,7 +68,7 @@
     padding: 1px 0;
     margin-top: 2%;
     border-radius: 5px;
-    height: 250px;
+    height: 487px;
 }
 
 #photo-posted {
@@ -142,3 +142,19 @@
     font-weight: bolder;
     border-radius: 25px;
 }
+
+
+.fav-list-container {
+    display: flex;
+    overflow-x: scroll;
+    margin-top: -20px;
+}
+
+/* .fav-cards {
+    background: white;
+    text-align: center;
+    width: 30%;
+    margin: 1% 1% 1.5% 1%;
+    border: 1px solid rgb(201, 199, 199);
+    border-radius: 5px;
+} */

@@ -24,7 +24,7 @@ function Login() {
   }
 
   useEffect(() => {
-    user && history.push("/");
+    user && history.goBack();
   }, [user, history]);
 
   return (

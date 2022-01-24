@@ -1,5 +1,4 @@
 import {
-  fetchEvent,
   fetchSingleTag,
   resetSingleTag,
 } from "../../features/events/eventsSlice";
@@ -49,10 +48,6 @@ function MiniEventContainer({
     );
   }
 
-  function handleSingleEventClick(id) {
-    dispatch(fetchEvent(id));
-  }
-
   function handleMoreClick() {
     if (count + 3 <= eventsToBeSorted.length) {
       setCount(count + 3);
@@ -76,7 +71,6 @@ function MiniEventContainer({
             key={event.id}
             event={event}
             pt={pt.type}
-            handleSingleEventClick={handleSingleEventClick}
             tagId={tagId}
           />
         ))}
