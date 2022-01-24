@@ -37,22 +37,37 @@ function PostPhoto() {
     setTags(updateTag);
   }
 
-  function handlePhotoTagPost() {
-    let idArr = [];
+  function handlePhotoTagPost(photoId) {
     while (tags.length) {
       let tagId = tags.pop().id;
-      idArr.push(tagId);
+      fetch("/api/gallery_tags", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ gallery_id: photoId, hashtag_id: tagId }),
+      });
     }
-    console.log(idArr);
   }
 
   function handlePhotoSubmit(e) {
     e.preventDefault();
     if (img_url) {
-      console.log("ran");
-      handlePhotoTagPost();
-      setImg_url("");
-      setTags([]);
+      fetch("/api/galleries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ img_url }),
+      }).then((r) => {
+        if (r.ok) {
+          r.json().then((data) => {
+            handlePhotoTagPost(data.id);
+            setImg_url("");
+            setTags([]);
+          });
+        }
+      });
     } else {
       setInvalidSubmit(true);
     }
