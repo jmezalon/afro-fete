@@ -15,14 +15,18 @@ function PostPhoto() {
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState([]);
   const [tagLeft, setTagLeft] = useState(3);
+  const [invalidSubmit, setInvalidSubmit] = useState(false);
   const [img_url, setImg_url] = useState("");
 
   useEffect(() => {
     dispatch(fetchHashtags());
+    if (tagLeft <= 0) {
+      setInvalidSubmit(false);
+    }
     return () => {
       dispatch(resetPopularHash());
     };
-  }, [dispatch]);
+  }, [dispatch, tagLeft]);
 
   let availableHash = hashtags.filter((tag) =>
     tag.tag.toLowerCase().includes(tagInput.toLowerCase())
@@ -33,11 +37,25 @@ function PostPhoto() {
     setTags(updateTag);
   }
 
+  function handlePhotoTagPost() {
+    let idArr = [];
+    while (tags.length) {
+      let tagId = tags.pop().id;
+      idArr.push(tagId);
+    }
+    console.log(idArr);
+  }
+
   function handlePhotoSubmit(e) {
     e.preventDefault();
-    console.log("ran");
-    setImg_url("");
-    setTags([]);
+    if (img_url) {
+      console.log("ran");
+      handlePhotoTagPost();
+      setImg_url("");
+      setTags([]);
+    } else {
+      setInvalidSubmit(true);
+    }
   }
 
   function handleTagSubmit() {
@@ -45,7 +63,6 @@ function PostPhoto() {
       setTags([...tags, availableHash[0]]);
       setTagInput("");
       setTagLeft(() => tagLeft - 1);
-      console.log(tagLeft);
     }
   }
 
@@ -62,7 +79,7 @@ function PostPhoto() {
               src={img_url || `${process.env.PUBLIC_URL}/foto-icon.png`}
               alt="camara-placeholder"
             />
-            <form action="post-photo-form" onSubmit={handlePhotoSubmit}>
+            <form action="post-photo-form">
               <label htmlFor="upload">
                 <input
                   id="upload-button"
@@ -73,6 +90,12 @@ function PostPhoto() {
               </label>
               <label htmlFor="photo-link">
                 <input
+                  style={{
+                    border:
+                      !img_url && invalidSubmit
+                        ? "1px solid red"
+                        : "1px solid black",
+                  }}
                   type="text"
                   name="img_url"
                   onChange={(e) => setImg_url(e.target.value)}
@@ -84,7 +107,7 @@ function PostPhoto() {
                 {tags.length > 0 &&
                   tags.map((t) => (
                     <div className="selected-tags" key={t.id}>
-                      <p>{t.tag}</p>
+                      <p>#{t.tag}</p>
                       <p
                         id="delete-tag"
                         onClick={() => {
@@ -125,12 +148,19 @@ function PostPhoto() {
                   ))}
               </div>
               {tags.length === 0 && !tagInput ? (
-                <p style={{ margin: "-8px 0 35px 108px", fontSize: "smaller" }}>
+                <p
+                  style={{
+                    color: invalidSubmit ? "red" : "black",
+                    margin: "-8px 0 35px 108px",
+                    fontSize: "smaller",
+                  }}
+                >
                   ** 3 minimum required **
                 </p>
               ) : (
                 <p
                   style={{
+                    color: invalidSubmit ? "red" : "black",
                     margin: "-8px 0 35px 108px",
                     fontSize: "smaller",
                     display: `${displayNone}`,
@@ -140,7 +170,16 @@ function PostPhoto() {
                 </p>
               )}
               <label htmlFor="confirm">
-                <input id="confirm-button" type="button" value="confirm" />
+                <input
+                  onClick={(e) => {
+                    tagLeft <= 0
+                      ? handlePhotoSubmit(e)
+                      : setInvalidSubmit(true);
+                  }}
+                  id="confirm-button"
+                  type="button"
+                  value="confirm"
+                />
               </label>
             </form>
           </section>

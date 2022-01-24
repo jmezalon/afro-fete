@@ -142,6 +142,7 @@
     font-weight: bolder;
     border-radius: 25px;
     margin-top: 12px;
+    cursor: pointer;
 }
 
 
@@ -164,7 +165,7 @@
     margin: 5px;
     background: lightskyblue;
     padding: 0 1px;
-    /* font-size: small; */
+    font-style: italic;
 }
 
 #delete-tag {
