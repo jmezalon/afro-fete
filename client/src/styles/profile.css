@@ -141,6 +141,7 @@
     color: white;
     font-weight: bolder;
     border-radius: 25px;
+    margin-top: 12px;
 }
 
 
@@ -150,11 +151,44 @@
     margin-top: -20px;
 }
 
-/* .fav-cards {
-    background: white;
-    text-align: center;
-    width: 30%;
-    margin: 1% 1% 1.5% 1%;
-    border: 1px solid rgb(201, 199, 199);
-    border-radius: 5px;
-} */
+.selected-tags-container{
+    display: flex;
+}
+
+.selected-tags {
+    display: flex;
+}
+
+.selected-tags > p {
+    display: flex;
+    margin: 5px;
+    background: lightskyblue;
+    padding: 0 1px;
+    /* font-size: small; */
+}
+
+#delete-tag {
+    background: transparent;
+    cursor: pointer;
+    font-size: smaller;
+    position: static;
+    margin-left: -9px;
+    margin-top: -3px;
+    padding: 2px;
+    color: red;
+    /* border-radius: 50%; */
+    height: 20px;
+    width: 18px;
+}
+
+.available-tag {
+    padding-left: 150px;
+    margin: -8px 0 12px 0;
+}
+
+
+.available-tag > li {
+    list-style: none;
+    cursor: pointer;
+    margin-bottom: 1px;
+}
