@@ -43,7 +43,13 @@
 }
 
 #event-card-left-section {
-    margin-right: 4%;
+    margin-right: -5px;
+    margin-top: -46px;
+    margin-left: -20px;
+}
+#event-card-left-section > p {
+    font-size: 2.0em;
+    color: #ed4c4c;
 }
 
 #event-card-right-section {
@@ -159,9 +165,23 @@
     margin: 0 3%;
 }
 
-#single-event-card-left-section {
+/* #single-event-card-left-section {
     margin-right: 4%;
+} */
+
+/* this */
+
+#single-event-card-left-section {
+    margin-right: -15px;
+    margin-top: -75px;
+    margin-left: -37px;
 }
+#single-event-card-left-section > p {
+    font-size: 3.0em;
+    color: #ed4c4c;
+}
+
+/* boundery */
 
 #single-event-card-right-section {
     text-align: left;

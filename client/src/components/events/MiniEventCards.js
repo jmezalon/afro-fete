@@ -23,6 +23,14 @@ function MiniEventCards({ event, pt, tagId }) {
     }
     return heart;
   }
+  // let currentDate = new Intl.DateTimeFormat("en-us", options).format();
+
+  let options = { month: "short", day: "numeric" };
+  const date = new Date(event.date.slice(0, 10));
+
+  const modifiedDate = new Intl.DateTimeFormat("en-US", options)
+    .format(date)
+    .split();
 
   return (
     <div
@@ -41,7 +49,10 @@ function MiniEventCards({ event, pt, tagId }) {
           />
         </section>
         <section id="bottom-event-card-section">
-          <div id="event-card-left-section">date</div>
+          <div id="event-card-left-section">
+            <p style={{ fontWeight: "bolder" }}>{modifiedDate[0]}</p>
+            <p>{modifiedDate[1]}</p>
+          </div>
           <div id="event-card-right-section">
             <section
               style={{ marginTop: `${mrgTp}` }}

@@ -4,7 +4,6 @@ import { onAddFav, onDeleteFav } from "../../features/favorites/favoritesSlice";
 import { useState } from "react";
 
 function EventCard({ event, tagId, handleTagClick }) {
-  //   console.log(event.date);
   const [errors, setErrors] = useState(false);
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites);
@@ -50,6 +49,15 @@ function EventCard({ event, tagId, handleTagClick }) {
     return () => clearTimeout(id);
   }
 
+  // let currentDate = new Intl.DateTimeFormat("en-us", options).format();
+
+  let options = { month: "short", day: "numeric" };
+  const date = new Date(event.date.slice(0, 10));
+
+  const modifiedDate = new Intl.DateTimeFormat("en-US", options)
+    .format(date)
+    .split();
+
   return (
     <div className="single-card-container">
       <section>
@@ -59,7 +67,10 @@ function EventCard({ event, tagId, handleTagClick }) {
         />
       </section>
       <section id="single-bottom-event-card-section">
-        <div id="single-event-card-left-section">date</div>
+        <div id="single-event-card-left-section">
+          <p style={{ fontWeight: "bolder" }}>{modifiedDate[0]}</p>
+          <p>{modifiedDate[1]}</p>
+        </div>
         <div id="single-event-card-right-section">
           <section id="single-venue-name-and-likes">
             <h2>{event.event_name}</h2>
