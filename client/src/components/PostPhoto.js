@@ -55,9 +55,8 @@ function PostPhoto() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ gallery_id: photoId, hashtag_id: tagId }),
-      });
+      }).then(() => dispatch(fetchUserGalleries()));
     }
-    dispatch(fetchUserGalleries());
   }
 
   function handlePhotoSubmit(e) {
@@ -93,6 +92,9 @@ function PostPhoto() {
   }
 
   const displayNone = tagLeft <= 0 ? "none" : "block";
+  const height = myPhotos.length <= 3 ? "472px" : "830px";
+
+  // put the form in their own components, for profile and post a photo
 
   return (
     <>
@@ -211,7 +213,7 @@ function PostPhoto() {
           </section>
         </div>
         <main>
-          <section id="photo-posted">
+          <section style={{ height: `${height}` }} className="photo-posted">
             <p>Photo Posted</p>
             <div className="photo-posted-container">
               {myPhotos.map((p) => (

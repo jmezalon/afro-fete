@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     delete '/logout', to:"sessions#destroy"
 
     get '/user/galleries', to:"galleries#user_index"
+    get '/hashtags/:id/galleries', to:"hashtags#show_gallery_tag"
     
   end
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

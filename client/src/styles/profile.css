@@ -197,13 +197,12 @@
 /* photo posted container */
 
 
-#photo-posted {
+.photo-posted {
     display: flex;
     flex-direction: column;
     text-align: center;
     margin-top: 2%;
     border-radius: 5px;
-    height: 830px;
     border: 1px solid #ed4c4c;
 }
 
@@ -220,6 +219,7 @@
     margin: 0.5% 1%;
     width: 23%;
     border-radius: 17px;
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
 }
 
 .photo-card > img {
@@ -229,6 +229,3 @@
     border-radius: 17px;
 }
 
-.photo-card > img:hover {
-    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
-}

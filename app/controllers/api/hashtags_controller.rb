@@ -14,6 +14,10 @@ class Api::HashtagsController < ApplicationController
         render json: @hashtag, serializer: EventTagSerializer, status: :ok
     end
 
+    def show_gallery_tag
+        render json: Hashtag.find(params[:id]), status: :ok
+    end
+
     def update 
         @hashtag.update(hashtag_params)
         render json: @hashtag, status: :accepted 

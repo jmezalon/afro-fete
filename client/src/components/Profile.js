@@ -10,8 +10,10 @@ import { useEffect } from "react";
 import Myphotos from "./Myphotos";
 import {
   fetchUserGalleries,
+  resetMyphotos,
   resetPopularGalleries,
 } from "../features/galleries/galleriesSlice";
+import { Link } from "react-router-dom";
 
 function Profile() {
   const user = useSelector((state) => state.users.user);
@@ -23,19 +25,23 @@ function Profile() {
 
   useEffect(() => {
     if (user) {
-      // user &&
-      dispatch(fetchFavorites());
+      user && dispatch(fetchFavorites());
       dispatch(fetchUserGalleries());
     }
     return () => {
       dispatch(resetFavorite());
       dispatch(resetPopularGalleries());
+      dispatch(resetMyphotos());
     };
   }, [dispatch, user]);
 
   let favList = events.filter((e) =>
     favorites.find((f) => f.event_id === e.id)
   );
+
+  const height = myPhotos.length <= 3 ? "472px" : "830px";
+
+  // put the form in their own components, for profile and post a photo
 
   return (
     <>
@@ -102,12 +108,17 @@ function Profile() {
               ))}
             </div>
           </section>
-          <section id="photo-posted">
+          <section style={{ height: `${height}` }} className="photo-posted">
             <p>Photo Posted</p>
             <div className="photo-posted-container">
-              {myPhotos.map((p) => (
-                <Myphotos key={p.id} photo={p} />
-              ))}
+              {myPhotos.length !== 0 ? (
+                myPhotos.map((p) => <Myphotos key={p.id} photo={p} />)
+              ) : (
+                <p style={{ margin: "auto" }}>
+                  <Link to={"/post-a-photo"}>Post some picture</Link> to some
+                  events you have attend!
+                </p>
+              )}
             </div>
           </section>
         </main>
