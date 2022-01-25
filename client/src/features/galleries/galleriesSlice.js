@@ -39,6 +39,9 @@ const galleriesSlice = createSlice({
     resetPopularGalleries(state) {
       state.galleries = [];
     },
+    onPhotoAdd(state, action) {
+      state.myPhotos = [...state.myPhotos, action.payload];
+    },
     resetSinglePhoto(state) {
       state.singlePhoto = {};
     },
@@ -67,7 +70,7 @@ const galleriesSlice = createSlice({
   },
 });
 
-export const { resetPopularGalleries, resetSinglePhoto } =
+export const { resetPopularGalleries, resetSinglePhoto, onPhotoAdd } =
   galleriesSlice.actions;
 
 export default galleriesSlice.reducer;

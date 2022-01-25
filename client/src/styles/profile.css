@@ -71,13 +71,13 @@
     height: 487px;
 }
 
-#photo-posted {
+/* #photo-posted {
     text-align: center;
     padding: 1px 0;
     margin-top: 2%;
     border-radius: 5px;
     height: 500px;
-}
+} */
 
 /* this is for posting a photo */
 
@@ -177,7 +177,6 @@
     margin-top: -3px;
     padding: 2px;
     color: red;
-    /* border-radius: 50%; */
     height: 20px;
     width: 18px;
 }
@@ -192,4 +191,44 @@
     list-style: none;
     cursor: pointer;
     margin-bottom: 1px;
+}
+
+
+/* photo posted container */
+
+
+#photo-posted {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 2%;
+    border-radius: 5px;
+    height: 830px;
+    border: 1px solid #ed4c4c;
+}
+
+.photo-posted-container {
+    display: flex;
+    padding: 2px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    margin: -20px 0px;
+}
+
+.photo-card{
+    background: #ed4c4c;
+    margin: 0.5% 1%;
+    width: 23%;
+    border-radius: 17px;
+}
+
+.photo-card > img {
+    width: 96%;
+    height: 270px;
+    margin: 2% 1% 1% 2%;
+    border-radius: 17px;
+}
+
+.photo-card > img:hover {
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
 }

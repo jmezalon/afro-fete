@@ -7,11 +7,18 @@ import {
   resetPopularHash,
   // fetchSingleTag,
 } from "../features/hashtags/hashtagsSlice";
+import Myphotos from "./Myphotos";
+import {
+  fetchUserGalleries,
+  onPhotoAdd,
+  resetPopularGalleries,
+} from "../features/galleries/galleriesSlice";
 
 function PostPhoto() {
   const dispatch = useDispatch();
   // const user = useSelector((state) => state.users.user);
   const hashtags = useSelector((state) => state.hashtags.hashtags);
+  const myPhotos = useSelector((state) => state.galleries.myPhotos);
   const [tagInput, setTagInput] = useState("");
   const [tags, setTags] = useState([]);
   const [tagLeft, setTagLeft] = useState(3);
@@ -20,11 +27,13 @@ function PostPhoto() {
 
   useEffect(() => {
     dispatch(fetchHashtags());
+    dispatch(fetchUserGalleries());
     if (tagLeft <= 0) {
       setInvalidSubmit(false);
     }
     return () => {
       dispatch(resetPopularHash());
+      dispatch(resetPopularGalleries());
     };
   }, [dispatch, tagLeft]);
 
@@ -48,6 +57,7 @@ function PostPhoto() {
         body: JSON.stringify({ gallery_id: photoId, hashtag_id: tagId }),
       });
     }
+    dispatch(fetchUserGalleries());
   }
 
   function handlePhotoSubmit(e) {
@@ -63,6 +73,7 @@ function PostPhoto() {
         if (r.ok) {
           r.json().then((data) => {
             handlePhotoTagPost(data.id);
+            dispatch(onPhotoAdd(data));
             setImg_url("");
             setTags([]);
           });
@@ -202,8 +213,10 @@ function PostPhoto() {
         <main>
           <section id="photo-posted">
             <p>Photo Posted</p>
-            <div>
-              <p>will have a list of photos posted, scroll to the botoom</p>
+            <div className="photo-posted-container">
+              {myPhotos.map((p) => (
+                <Myphotos key={p.id} photo={p} />
+              ))}
             </div>
           </section>
         </main>

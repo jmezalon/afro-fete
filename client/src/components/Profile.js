@@ -7,9 +7,15 @@ import {
   resetFavorite,
 } from "../features/favorites/favoritesSlice";
 import { useEffect } from "react";
+import Myphotos from "./Myphotos";
+import {
+  fetchUserGalleries,
+  resetPopularGalleries,
+} from "../features/galleries/galleriesSlice";
 
 function Profile() {
   const user = useSelector((state) => state.users.user);
+  const myPhotos = useSelector((state) => state.galleries.myPhotos);
   const favorites = useSelector((state) => state.favorites.favorites);
   const events = useSelector((state) => state.events.entities);
 
@@ -17,10 +23,13 @@ function Profile() {
 
   useEffect(() => {
     if (user) {
-      user && dispatch(fetchFavorites());
+      // user &&
+      dispatch(fetchFavorites());
+      dispatch(fetchUserGalleries());
     }
     return () => {
       dispatch(resetFavorite());
+      dispatch(resetPopularGalleries());
     };
   }, [dispatch, user]);
 
@@ -95,8 +104,10 @@ function Profile() {
           </section>
           <section id="photo-posted">
             <p>Photo Posted</p>
-            <div>
-              <p>has the photos and will need to srcoll to the left</p>
+            <div className="photo-posted-container">
+              {myPhotos.map((p) => (
+                <Myphotos key={p.id} photo={p} />
+              ))}
             </div>
           </section>
         </main>
