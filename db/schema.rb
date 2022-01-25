@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_015624) do
+ActiveRecord::Schema.define(version: 2022_01_25_115617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_015624) do
     t.string "link_to_purchase"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "event_name"
     t.index ["event_category_id"], name: "index_events_on_event_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

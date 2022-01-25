@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_many :hashtags, through: :event_tags
   has_many :favorites, dependent: :destroy
 
-  validates :venue_name, :img_url, :address, :city, :state, :date, presence: true
+  validates :venue_name, :event_name, :img_url, :address, :city, :state, :date, presence: true
 
   def hash_count 
     self.hashtags.count
