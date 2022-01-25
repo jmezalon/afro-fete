@@ -5,7 +5,7 @@ import Landing from "./components/Landing";
 import SingleEventType from "./components/events/SingleEventType";
 import Profile from "./components/user/Profile";
 import PostPhoto from "./components/user/PostPhoto";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Singup from "./components/authentication/Signup";
 import Login from "./components/authentication/Login";
@@ -33,7 +33,7 @@ function App() {
           marginBottom: "5%",
         }}
       />
-      <Switch>
+      <Routes>
         <Route exact path="/auth/signup">
           <Singup />
         </Route>
@@ -58,7 +58,7 @@ function App() {
         <Route exact path="/about-us">
           <About />
         </Route>
-      </Switch>
+      </Routes>
       <Footer />
     </div>
   );

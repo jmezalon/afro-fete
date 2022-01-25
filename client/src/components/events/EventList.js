@@ -4,7 +4,8 @@ import {
   showEvents,
 } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
-import { useParams, useHistory, useRouteMatch } from "react-router-dom";
+import { useParams, useMatch } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
 import "../../styles/event.css";
 import EventCard from "./EventCard";
@@ -29,8 +30,8 @@ function EventList({ tagSearch }) {
   const popularHash = useSelector((state) => state.hashtags.hashtags);
   const [id, setId] = useState("");
 
-  const history = useHistory();
-  const match = useRouteMatch();
+  const history = useNavigate();
+  const match = useMatch();
   const dispatch = useDispatch();
   const params = useParams();
 
@@ -59,7 +60,7 @@ function EventList({ tagSearch }) {
 
   useEffect(() => {
     if (!params.id && singleTag.events) {
-      history.push(
+      history(
         `/category/${
           singleTag.events[0].event_category.id
         }/${singleTag.events[0].event_category.category
