@@ -7,6 +7,7 @@ import {
 } from "../../features/galleries/galleriesSlice";
 import "../../styles/gallery.css";
 import Photolist from "./Photolist";
+import { userLogout } from "../../features/users/usersSlice";
 
 function Photogallery() {
   const user = useSelector((state) => state.users.user);
@@ -19,6 +20,7 @@ function Photogallery() {
     }
     return () => {
       dispatch(resetPopularGalleries());
+      dispatch(userLogout());
     };
   }, [dispatch, user]);
 
