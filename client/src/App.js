@@ -12,6 +12,7 @@ import Login from "./components/authentication/Login";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { findMe } from "./features/users/usersSlice";
+import Photogallery from "./components/gallery/Photogallery";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
         </Route>
         <Route exact path="/post-a-photo">
           <PostPhoto />
+        </Route>
+        <Route exact path="/photo-gallery">
+          <Photogallery />
         </Route>
         <Route exact path="/category/:id/:type">
           <SingleEventType />

@@ -11,7 +11,7 @@ import Myphotos from "./Myphotos";
 import {
   fetchUserGalleries,
   resetMyphotos,
-  resetPopularGalleries,
+  resetMyGalleries,
 } from "../../features/galleries/galleriesSlice";
 import { Link } from "react-router-dom";
 import EdituserForm from "./EdituserForm";
@@ -31,7 +31,7 @@ function Profile() {
     }
     return () => {
       dispatch(resetFavorite());
-      dispatch(resetPopularGalleries());
+      dispatch(resetMyGalleries());
       dispatch(resetMyphotos());
     };
   }, [dispatch, user]);

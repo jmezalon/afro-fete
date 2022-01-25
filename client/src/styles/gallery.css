@@ -1,0 +1,41 @@
+.gallery-container{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+}
+
+.photo-list-container{
+    margin: 2% 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.gallery-card{
+    max-width: 41%;
+    background: white;
+    margin: 0.5%;
+    padding: 0.3%;
+    border: 1px solid #ed4c4c;
+    border-radius: 17px;
+}
+
+.gallery-card > img {
+    max-width: 100%;
+    height: 350px;
+    border-radius: 17px;
+}
+
+
+.gallery-hashtag-list{
+    display: flex;
+    flex-wrap: wrap;
+    width: 96%;
+    margin: auto;
+    margin-left: -36px;
+}
+
+.gallery-hashtag-list > li {
+    list-style: none;
+    margin: 0 1%;
+}
