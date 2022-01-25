@@ -141,9 +141,10 @@
     text-align: center;
     width: 60%;
     margin: 1% 1% 6.5% 4%;
-    height: 550px;
+    height: 525px;
     border: 1px solid rgb(201, 199, 199);
     border-radius: 5px;
+    overflow-y: scroll;
 }
 
 .single-card-container > section > img {

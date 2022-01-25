@@ -35,7 +35,10 @@ function MiniEventCards({ event, pt, tagId }) {
         }/${event.event_category.category.replace(/\s/g, "").toLowerCase()}`}
       >
         <section>
-          <img src={event.img_url} alt="event-card" />
+          <img
+            src={event.img_url || `${process.env.PUBLIC_URL}/afrofete_logo.png`}
+            alt="event-card"
+          />
         </section>
         <section id="bottom-event-card-section">
           <div id="event-card-left-section">date</div>
@@ -44,7 +47,7 @@ function MiniEventCards({ event, pt, tagId }) {
               style={{ marginTop: `${mrgTp}` }}
               id="venue-name-and-likes"
             >
-              <h2>{event.venue_name}</h2>
+              <h2>{event.event_name}</h2>
 
               {!!!findFav() && heart === undefined && <p>🤍</p>}
               {!!findFav() && <p>🧡</p>}

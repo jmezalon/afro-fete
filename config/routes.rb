@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do 
-    resources :users, only: [:index, :update, :destroy]
+    resources :users, only: [:index, :destroy]
     resources :events
     resources :galleries, only: [:index, :create, :destroy]
     resources :event_categories, only: [:create, :index, :show]
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
     get '/user/galleries', to:"galleries#user_index"
     get '/hashtags/:id/galleries', to:"hashtags#show_gallery_tag"
-    
+    patch '/users/edit', to:'users#update'
   end
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

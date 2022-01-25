@@ -54,8 +54,8 @@ function Profile() {
             <>
               <img
                 src={
-                  `${process.env.PUBLIC_URL}/avatar-placeholder.png` ||
-                  (user && user.avatar)
+                  (user && user.avatar) ||
+                  `${process.env.PUBLIC_URL}/avatar-placeholder.png`
                 }
                 alt="avatar"
               />

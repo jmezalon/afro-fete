@@ -53,13 +53,16 @@ function EventCard({ event, tagId, handleTagClick }) {
   return (
     <div className="single-card-container">
       <section>
-        <img src={event.img_url} alt="event-card" />
+        <img
+          src={event.img_url || `${process.env.PUBLIC_URL}/afrofete_logo.png`}
+          alt="event-card"
+        />
       </section>
       <section id="single-bottom-event-card-section">
         <div id="single-event-card-left-section">date</div>
         <div id="single-event-card-right-section">
           <section id="single-venue-name-and-likes">
-            <h2>{event.venue_name}</h2>
+            <h2>{event.event_name}</h2>
 
             {!!!findFav() && heart === undefined && (
               <p
@@ -85,7 +88,8 @@ function EventCard({ event, tagId, handleTagClick }) {
           )}
           <>
             <p style={{ marginBottom: "-11px", color: "gray" }}>
-              {event.address} • {event.city}, {event.state} {event.zip}
+              {event.venue_name} • {event.address} • {event.city}, {event.state}{" "}
+              {event.zip}
             </p>
           </>
           <h2 style={{ marginBottom: "-15px" }}>Description</h2>
@@ -102,7 +106,16 @@ function EventCard({ event, tagId, handleTagClick }) {
                 </li>
               ))}
           </ul>
-          <button id="buy-ticket-button">Buy Tickects</button>
+          {event.link_to_purchase && (
+            <button id="buy-ticket-button">
+              <a
+                style={{ textDecoration: "none", color: "white" }}
+                href={event.link_to_purchase}
+              >
+                Buy Tickects
+              </a>
+            </button>
+          )}
         </div>
       </section>
     </div>
