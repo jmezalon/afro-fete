@@ -7,11 +7,9 @@ import {
 } from "../../features/galleries/galleriesSlice";
 import "../../styles/gallery.css";
 import Photolist from "./Photolist";
-import { userLogout } from "../../features/users/usersSlice";
 
 function Photogallery() {
   const user = useSelector((state) => state.users.user);
-  const photos = useSelector((state) => state.galleries.galleries);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,9 +18,10 @@ function Photogallery() {
     }
     return () => {
       dispatch(resetPopularGalleries());
-      dispatch(userLogout());
     };
   }, [dispatch, user]);
+
+  const photos = useSelector((state) => state.galleries.galleries);
 
   let sortedPhotos = [...photos];
 
