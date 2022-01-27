@@ -39,7 +39,7 @@ function MiniEventContainer({
   }
 
   if (!pt.id) {
-    sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
+    sortedEvents.sort((a, b) => b.fav_count - a.fav_count);
   } else if (singleTag) {
     sortedEvents = singleTag;
   } else {

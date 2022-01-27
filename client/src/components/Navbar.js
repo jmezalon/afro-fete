@@ -1,4 +1,6 @@
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router";
+
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/nav.css";
 import { userLogout } from "../features/users/usersSlice";
@@ -8,7 +10,7 @@ import { resetSingleTag } from "../features/hashtags/hashtagsSlice";
 import { resetFavorite } from "../features/favorites/favoritesSlice";
 
 function Navbar() {
-  const history = useHistory();
+  const history = useNavigate();
   const user = useSelector((state) => state.users.user);
   const dispatch = useDispatch();
 
@@ -18,7 +20,7 @@ function Navbar() {
     }).then((r) => {
       if (r.ok) {
         dispatch(userLogout());
-        history.push("/");
+        history("/");
       }
     });
   }
