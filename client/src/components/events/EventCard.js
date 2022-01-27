@@ -52,7 +52,7 @@ function EventCard({ event, tagId, handleTagClick }) {
   // let currentDate = new Intl.DateTimeFormat("en-us", options).format();
 
   let options = { month: "short", day: "numeric" };
-  const date = new Date(event.date.slice(0, 10));
+  const date = new Date(event.date?.slice(0, 10));
 
   const modifiedDate = new Intl.DateTimeFormat("en-US", options)
     .format(date)

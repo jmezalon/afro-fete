@@ -10,7 +10,6 @@ import Photolist from "./Photolist";
 
 function Photogallery() {
   const user = useSelector((state) => state.users.user);
-  const photos = useSelector((state) => state.galleries.galleries);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,6 +20,8 @@ function Photogallery() {
       dispatch(resetPopularGalleries());
     };
   }, [dispatch, user]);
+
+  const photos = useSelector((state) => state.galleries.galleries);
 
   let sortedPhotos = [...photos];
 
