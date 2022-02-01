@@ -9,7 +9,6 @@ import MiniEventCards from "./MiniEventCards";
 function MiniEventContainer({
   pt,
   eventsToBeSorted,
-  events,
   singleTag,
   tagId,
   foundSearchTag,
@@ -39,13 +38,11 @@ function MiniEventContainer({
   }
 
   if (!pt.id) {
-    sortedEvents.sort((a, b) => b.hash_count - a.hash_count);
+    sortedEvents.sort((a, b) => b.fav_count - a.fav_count);
   } else if (singleTag) {
     sortedEvents = singleTag;
   } else {
-    sortedEvents = events.filter(
-      (event) => event.event_category_id === parseInt(pt.id)
-    );
+    sortedEvents.filter((event) => event.event_category_id === parseInt(pt.id));
   }
 
   function handleMoreClick() {

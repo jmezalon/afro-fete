@@ -119,7 +119,6 @@ function EventList({ tagSearch }) {
       {isEvents ? (
         <MiniEventContainer
           pt={params}
-          events={events}
           eventsToBeSorted={eventsToBeSorted}
           singleTag={singleTag.events}
           tagId={id}

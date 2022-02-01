@@ -92,17 +92,3 @@ function MiniEventCards({ event, pt, tagId }) {
 }
 
 export default MiniEventCards;
-
-// history.push(
-//   `/category/${
-//     singleTag.events[0].event_category.id
-//   }/${singleTag.events[0].event_category.category
-//     .replace(/\s/g, "")
-//     .toLowerCase()}`
-//   //   `/category/${
-//   //     singleTag.events[0].event_category.id
-//   //   }/${singleTag[0].event_category.category
-//   //     .replace(/\s/g, "")
-//   //     .toLowerCase()}`
-// );
-// dispatch(showEvents(true));
