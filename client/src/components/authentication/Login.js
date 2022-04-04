@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { NavLink, useHistory } from "react-router-dom";
 import { fetchUser } from "../../features/users/usersSlice";
 import { useSelector, useDispatch } from "react-redux";
 import "../../styles/auth.css";
@@ -11,7 +10,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const errors = useSelector((state) => state.users.errors);
   const isLoading = useSelector((state) => state.users.status);
-  const history = useNavigate();
+  const history = useHistory();
   const user = useSelector((state) => state.users.user);
 
   const dispatch = useDispatch();
@@ -25,7 +24,7 @@ function Login() {
   }
 
   useEffect(() => {
-    user && history(-1);
+    user && history.goBack();
   }, [user, history]);
 
   return (

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { NavLink, useHistory } from "react-router-dom";
 import { showEvents } from "../../features/events/eventsSlice";
 import { signupUser } from "../../features/users/usersSlice";
 import "../../styles/auth.css";
@@ -9,7 +8,7 @@ import "../../styles/auth.css";
 function Singup() {
   const errors = useSelector((state) => state.users.errors);
   const isLoading = useSelector((state) => state.users.status);
-  const history = useNavigate();
+  const history = useHistory();
   const user = useSelector((state) => state.users.user);
   const [formData, setFormData] = useState({
     username: "",
@@ -56,7 +55,7 @@ function Singup() {
   }
 
   useEffect(() => {
-    user && history("/");
+    user && history.push("/");
   }, [user, history]);
 
   return (
