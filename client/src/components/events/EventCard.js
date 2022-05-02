@@ -76,7 +76,7 @@ function EventCard({ event, tagId, handleTagClick }) {
         </div>
         <div id="single-event-card-right-section">
           <section id="single-venue-name-and-likes">
-            <h3>{event.event_name}</h3>
+            <h2>{event.event_name}</h2>
 
             {!!!findFav() && heart === undefined && (
               <p

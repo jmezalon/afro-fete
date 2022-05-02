@@ -66,7 +66,7 @@ function MiniEventCards({ event, pt, tagId }) {
               style={{ marginTop: `${mrgTp}` }}
               id="venue-name-and-likes"
             >
-              <h2>{event.event_name}</h2>
+              <h3>{event.event_name}</h3>
 
               {!!!findFav() && heart === undefined && <p>🤍</p>}
               {!!findFav() && <p>🧡</p>}
