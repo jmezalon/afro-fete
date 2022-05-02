@@ -1,4 +1,8 @@
 puts "begin seeding"
+User.all.destroy_all
+EventCategory.all.destroy_all
+EventTag.all.destroy_all
+Event.all.destroy_all
 Hashtag.all.destroy_all
 # two users
 
