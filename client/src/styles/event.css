@@ -86,6 +86,10 @@
     box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
 }
 
+.single-cat-container > a > img {
+    width: 97%;
+}
+
 .left-category-section {
     width: 26%;
     padding: 10% 0;
