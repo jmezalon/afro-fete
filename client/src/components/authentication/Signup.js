@@ -64,7 +64,7 @@ function Singup() {
       <hr />
       <img
         className="auth-logo"
-        src={process.env.PUBLIC_URL + "/afrofete_logo.png"}
+        src={process.env.PUBLIC_URL + "/../afrofete_logo.png"}
         alt="logo"
       />
       {/* <img

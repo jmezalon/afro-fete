@@ -33,7 +33,7 @@ function Login() {
       <hr />
       <img
         className="auth-logo"
-        src={process.env.PUBLIC_URL + "/afrofete_logo.png"}
+        src={process.env.PUBLIC_URL + "/../afrofete_logo.png"}
         alt="logo"
       />
       <form action="login" onSubmit={handleSubmit} className="auth-form">
