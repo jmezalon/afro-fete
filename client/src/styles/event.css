@@ -199,6 +199,7 @@
     flex-direction: column;
     width: 88%;
     margin-top: -6%;
+    padding-left: 3%;
 }
 
 #single-venue-name-and-likes {
