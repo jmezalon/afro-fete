@@ -26,12 +26,12 @@ function Singup() {
     });
   }
 
-  function handleRadioChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: !formData.isPromoter,
-    });
-  }
+  // function handleRadioChange(e) {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: !formData.isPromoter,
+  //   });
+  // }
 
   async function handleSubmit(e) {
     e.preventDefault();
