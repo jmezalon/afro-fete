@@ -197,16 +197,22 @@ EventTag.create(event_id: e17.id, hashtag_id: zooktag.id)
 
 e18 = Event.create!(user_id: jojo.id, event_name: "Fabolous @ Coney Art Walls", venue_name: "Coney Art Walls", zip: "11224", state: "NY", img_url: "https://fever.imgix.net/plan/photo/6afb5dc6-bfae-11ec-8e95-0647d04561f1.jpg?w=550&h=550&auto=format&fm=jpg", city: "Brooklyn", address: "3050 Stillwell ave", event_category_id: art.id, date: "2022/06/11", description: "If you love to draw and have fun with friends, come through.")
 
+EventTag.create(event_id: e18.id, hashtag_id: arttag.id)
+EventTag.create(event_id: e18.id, hashtag_id: nyctag.id)
 
 e19 = Event.create!(user_id: jojo.id, event_name: "Micky Dolenz @ Hackensack", venue_name: "Meridian Health Theatre", zip: "07701", state: "NJ", img_url: "https://image.shutterstock.com/image-photo/stock-photo-artistic-artist-art-250nw-262209128.jpg", city: "Staten Island", address: "99 Monmouth St", event_category_id: art.id, date: "2022/05/31", description: "paint and link with companies.")
+
+EventTag.create(event_id: e19.id, hashtag_id: arttag.id)
+EventTag.create(event_id: e19.id, hashtag_id: njtag.id)
+EventTag.create(event_id: e19.id, hashtag_id: besttag.id)
 
 
 e20 = Event.create!(user_id: jojo.id, event_name: "Night Out", venue_name: "Lux pleasure", zip: "10736", state: "NY", img_url: "https://pyxis.nymag.com/v1/imgs/101/30b/f06555b200ed1e823d4d2241e5788a3160-2----.w710.jpg", city: "Staten Island", address: "56-21 staten island dr", event_category_id: festival.id, date: "2022/07/11", description: "this is outdoor and it's spacious. come in full it will be very lovely.")
 
-EventTag.create(event_id: e18.id, hashtag_id: contemptag.id)
-EventTag.create(event_id: e18.id, hashtag_id: festivaltag.id)
-EventTag.create(event_id: e18.id, hashtag_id: amptag.id)
-EventTag.create(event_id: e18.id, hashtag_id: stdtag.id)
+EventTag.create(event_id: e20.id, hashtag_id: contemptag.id)
+EventTag.create(event_id: e20.id, hashtag_id: festivaltag.id)
+EventTag.create(event_id: e20.id, hashtag_id: amptag.id)
+EventTag.create(event_id: e20.id, hashtag_id: stdtag.id)
 
 
 

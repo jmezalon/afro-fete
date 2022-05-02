@@ -31,7 +31,7 @@ function Login() {
     <div className="auth-container">
       <h4 className="auth-header">Log In</h4>
       <hr />
-      <img className="auth-logo" src={"/afrofete_logo.png"} alt="logo" />
+      <img className="auth-logo" src="/afrofete_logo.png" alt="logo" />
       <form action="login" onSubmit={handleSubmit} className="auth-form">
         <label htmlFor="username">
           <input

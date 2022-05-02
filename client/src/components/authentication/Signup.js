@@ -62,7 +62,7 @@ function Singup() {
     <div className="auth-container">
       <h4 className="auth-header">Sign Up</h4>
       <hr />
-      <img className="auth-logo" src={"/afrofete_logo.png"} alt="logo" />
+      <img className="auth-logo" src="/afrofete_logo.png" alt="logo" />
       {/* <img
         src={process.env.PUBLIC_URL + "/event-types-imgs/dayparty.png"}
         alt=""
