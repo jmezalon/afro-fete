@@ -59,7 +59,11 @@ function Profile() {
                 }
                 alt="avatar"
               />
-              <img id="edit-icon" src="/edit.png" alt="edit-icon" />
+              <img
+                id="edit-icon"
+                src="https://w7.pngwing.com/pngs/311/860/png-transparent-edit-button-modify-symbol-icon-modification.png"
+                alt="edit-icon"
+              />
             </>
             <EdituserForm />
           </section>
