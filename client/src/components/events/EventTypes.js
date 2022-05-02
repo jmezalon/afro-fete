@@ -31,10 +31,7 @@ function EventTypes() {
             .replace(/\s/g, "")
             .toLowerCase()}`}
         >
-          <img
-            alt="event-types"
-            src={process.env.PUBLIC_URL + "/.." + t.img_url}
-          />
+          <img alt="event-types" src={t.img_url} />
         </Link>
       ))}
     </div>
