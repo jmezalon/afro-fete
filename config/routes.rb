@@ -18,5 +18,5 @@ Rails.application.routes.draw do
     get '/hashtags/:id/galleries', to:"hashtags#show_gallery_tag"
     patch '/users/edit', to:'users#update'
   end
-  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
+  # get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
