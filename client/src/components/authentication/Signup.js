@@ -72,7 +72,7 @@ function Singup() {
         alt=""
       /> */}
       <form action="signup" onSubmit={handleSubmit} className="auth-form">
-        <div id="radio-options">
+        {/* <div id="radio-options">
           <span>I am a ...</span>
           <span>
             <input
@@ -92,7 +92,7 @@ function Singup() {
             />
             <label htmlFor="promoter">Promoter</label>
           </span>
-        </div>
+        </div> */}
 
         <label htmlFor="username">
           <input

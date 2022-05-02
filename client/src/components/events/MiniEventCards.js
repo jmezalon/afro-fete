@@ -50,7 +50,15 @@ function MiniEventCards({ event, pt, tagId }) {
         </section>
         <section id="bottom-event-card-section">
           <div id="event-card-left-section">
-            <p style={{ fontWeight: "bolder" }}>{modifiedDate[0]}</p>
+            <p
+              style={{
+                fontWeight: "bolder",
+                marginLeft: "12px",
+                marginRight: "8px",
+              }}
+            >
+              {modifiedDate[0]}
+            </p>
             <p>{modifiedDate[1]}</p>
           </div>
           <div id="event-card-right-section">
