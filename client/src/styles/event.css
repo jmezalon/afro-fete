@@ -128,7 +128,7 @@
 .cat-event-list-container {
     display: flex;
     flex-wrap: wrap;
-    width: 110%;
+    width: 150%;
     margin: auto;
     margin-left: 5%;
 }
@@ -147,7 +147,7 @@
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    width: 70%;
 }
 
 /* this is the single event card */
