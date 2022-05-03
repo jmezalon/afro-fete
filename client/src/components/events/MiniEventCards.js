@@ -14,7 +14,8 @@ function MiniEventCards({ event, pt, tagId }) {
   }
 
   const mrgTp = pt ? "-10px" : "";
-  const width = pt ? "125%" : "364px";
+  const width = pt ? "125%" : "123%";
+  // const bottom = !pt ? "-4%" : "-20%";
 
   let heart;
   function findFav() {
@@ -71,16 +72,28 @@ function MiniEventCards({ event, pt, tagId }) {
               {!!!findFav() && heart === undefined && <p>🤍</p>}
               {!!findFav() && <p>🧡</p>}
             </section>
-            <>
+            <div
+              style={{
+                display: "flex",
+                position: "relative",
+                bottom: "-6%",
+                flexDirection: "column",
+              }}
+            >
               <p style={{ marginBottom: "-11px", color: "gray" }}>
                 {event.address}
               </p>
               <p style={{ color: "gray" }}>
                 {event.city}, {event.state} {event.zip}
               </p>
-            </>
+            </div>
             <ul
-              style={{ marginLeft: "-90px", width: `${width}` }}
+              style={{
+                marginLeft: "-91px",
+                width: `${width}`,
+                // position: "relative",
+                // bottom: `${bottom}`,
+              }}
               className="hashtag-list"
             >
               {event.hashtags.map((hash) => (
