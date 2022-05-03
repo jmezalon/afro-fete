@@ -15,7 +15,6 @@ function MiniEventCards({ event, pt, tagId }) {
 
   const mrgTp = pt ? "-10px" : "";
   const width = pt ? "125%" : "123%";
-  // const bottom = !pt ? "-4%" : "-20%";
 
   let heart;
   function findFav() {
@@ -24,7 +23,6 @@ function MiniEventCards({ event, pt, tagId }) {
     }
     return heart;
   }
-  // let currentDate = new Intl.DateTimeFormat("en-us", options).format();
 
   let options = { month: "short", day: "numeric" };
   const date = new Date(event.date.slice(0, 10));
@@ -91,8 +89,6 @@ function MiniEventCards({ event, pt, tagId }) {
               style={{
                 marginLeft: "-91px",
                 width: `${width}`,
-                // position: "relative",
-                // bottom: `${bottom}`,
               }}
               className="hashtag-list"
             >

@@ -49,8 +49,6 @@ function EventCard({ event, tagId, handleTagClick }) {
     return () => clearTimeout(id);
   }
 
-  // let currentDate = new Intl.DateTimeFormat("en-us", options).format();
-
   let options = { month: "short", day: "numeric" };
   let date;
   if (event.date) {

@@ -1,5 +1,3 @@
-// import { Link } from "react-router-dom";
-
 function TrendingHash({ pt, tagId, popularHash, handleTagClick }) {
   const mginLft = pt ? "3%" : "21%";
   const mglft = pt ? "9%" : "0";

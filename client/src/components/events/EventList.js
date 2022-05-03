@@ -1,8 +1,4 @@
-import {
-  fetchEvents,
-  // fetchSingleTag,
-  showEvents,
-} from "../../features/events/eventsSlice";
+import { fetchEvents, showEvents } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
 import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
