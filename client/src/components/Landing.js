@@ -2,7 +2,7 @@ import EventTypes from "./events/EventTypes";
 import "../styles/landing.css";
 import FooterSecondary from "./FooterSecondary";
 import EventList from "./events/EventList";
-
+//checking for codeTract
 function Landing() {
   return (
     <div className="landing-container">
