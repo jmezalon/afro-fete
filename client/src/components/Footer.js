@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import "../styles/footer.css";
+import "../styles/footer.scss";
 import { showEvents } from "../features/events/eventsSlice";
 import { resetSingleTag } from "../features/hashtags/hashtagsSlice";
 
@@ -13,17 +13,16 @@ function Footer() {
           dispatch(showEvents(true));
           dispatch(resetSingleTag());
         }}
-        className="left-side-logo"
+        className="footer-container__logo"
       >
         <NavLink exact to="/">
           <img
-            className="logo"
             src={process.env.PUBLIC_URL + "/afrofete_white.png"}
             alt="logo"
           />
         </NavLink>
       </div>
-      <div className="right-side-options">
+      <div className="footer-container__right-side-options">
         <NavLink exact to="/about-us">
           <p>About Us</p>
         </NavLink>
