@@ -1,5 +1,5 @@
 import EventTypes from "./events/EventTypes";
-import "../styles/landing.css";
+import "../styles/landing.scss";
 import FooterSecondary from "./FooterSecondary";
 import EventList from "./events/EventList";
 

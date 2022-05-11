@@ -1,0 +1,96 @@
+.landing-container {
+    width: 90%;
+    margin: auto;
+    
+    header {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 3%;
+
+        section {
+            margin-right: -1%;
+            width: 60%;
+
+            h3 {
+                font-size: 4.2em;
+
+                em {
+                    color: #ED4C4C;
+                }
+            }
+
+            button {
+                background: #ED4C4C;
+                color: white;
+                width: 15%;
+                height: 29px;
+                border-radius: 16px;
+                border: none;
+            }
+        }
+    }
+
+    main {
+        section {
+            h6 {
+                text-align: center;
+                font-size: 2em;
+                margin-bottom: 2%;
+            }
+        }
+    }
+}
+
+#header-img {
+    width: 25%;
+}
+
+.types-container {
+    text-align: center;
+    margin-bottom: 2%;
+
+    a {
+        img {
+            margin: 0.5% 1%;
+        }
+
+        img:hover {
+            box-shadow: 8px 15px 15px -10px rgba(66,66,66,1)
+        }
+    }
+}
+
+.calender-filter {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    margin-left: 25%;
+    width: 45%;
+
+    li {
+        list-style: none; 
+    }
+}
+
+
+#show-more-button {
+    background: white;
+    border: solid 1px #ED4C4C;
+    border-radius: 16px;
+    width: 110px;
+    height: 29px;
+    color: #ED4C4C;
+    margin-bottom: 2%;
+}
+
+#show-more-button:hover {
+    color: white;
+    background: #ED4c4c;
+    cursor: pointer;
+}
+
+
+
+
