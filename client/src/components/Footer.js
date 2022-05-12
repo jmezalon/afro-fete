@@ -23,10 +23,10 @@ function Footer() {
         </NavLink>
       </div>
       <div className="footer-container__right-side-options">
-        <NavLink exact to="/about-us">
+        <NavLink className="mobile-display-none" exact to="/about-us">
           <p>About Us</p>
         </NavLink>
-        <NavLink to="/how-it-works">
+        <NavLink className="mobile-display-none" to="/how-it-works">
           <p>How It Works</p>
         </NavLink>
         <NavLink to="/contact-us">

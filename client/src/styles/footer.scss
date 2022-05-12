@@ -63,3 +63,35 @@
         }
     }
 }
+
+
+@media screen and (max-width: 440px) {
+    .footer-secondary-container { 
+        display: none;
+    }
+
+    .footer-container {
+        height: 100px;
+        display: grid;
+        grid-template-columns: 15% 85%;
+
+        &__logo{
+            a {
+                img {
+                    width: 160%;
+                }
+            }
+        }
+
+        &__right-side-options {
+            display: flex;
+            justify-content: space-around;
+            width: 70%;
+            padding-left: 38%;
+        }
+
+        .mobile-display-none {
+            display: none;
+        }
+    }
+}
