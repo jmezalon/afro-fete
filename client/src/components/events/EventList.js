@@ -108,7 +108,13 @@ function EventList({ tagSearch }) {
   return (
     // <div id="top" className="event-list--and-ul-container">
     <>
-      <ul className={params.type ? "cat-calender-filter" : "calender-filter"}>
+      <ul
+        className={
+          params.type
+            ? "cat-calender-filter mobile-display-none"
+            : "calender-filter"
+        }
+      >
         {calenderFilter.map((day) => (
           <li key={day}>{day}</li>
         ))}
@@ -132,6 +138,8 @@ function EventList({ tagSearch }) {
         />
       )}
       <hr
+        id="mobile-hr"
+        className="mobile-display-none"
         style={{
           marginLeft: `${marginLeftHr}`,
           marginBottom: "6%",
@@ -139,6 +147,7 @@ function EventList({ tagSearch }) {
           height: "1.5px",
         }}
       />
+      <hr id="mobile-hr" className="webpage-display-none" />
       <TrendingHash
         popularHash={filterTags}
         pt={params.type}

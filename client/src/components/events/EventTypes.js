@@ -30,6 +30,7 @@ function EventTypes() {
           to={`/category/${t.id}/${t.category
             .replace(/\s/g, "")
             .toLowerCase()}`}
+          id="mobile-catagory"
         >
           <img alt="event-types" src={t.img_url} />
         </Link>

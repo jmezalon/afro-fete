@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import FooterSecondary from "../FooterSecondary";
@@ -12,6 +12,7 @@ function SingleEventType() {
   let isEvents = useSelector((state) => state.events.isEvents);
   const dispatch = useDispatch();
   const params = useParams();
+  const history = useHistory();
 
   function handleGoBack() {
     dispatch(showEvents(true));
@@ -20,13 +21,20 @@ function SingleEventType() {
   return (
     <div>
       <main className="single-category-container">
-        <section className="left-category-section">
+        <section className="left-category-section mobile-display-none">
           <EventTypes />
         </section>
         <section className="right-category-section">
-          {!isEvents && (
+          {!isEvents ? (
             <button id="back-to-events-button" onClick={handleGoBack}>
               back to Events
+            </button>
+          ) : (
+            <button
+              id="back-to-event-category"
+              onClick={() => history.goBack()}
+            >
+              Back
             </button>
           )}
           <h2 id="event-category-title">
@@ -39,16 +47,28 @@ function SingleEventType() {
               onChange={(e) => setTagSearch(e.target.value)}
               onBlur={() => setTagSearch("")}
               placeholder="🔍  search events by hashtag... ex #dayparty"
+              className="mobile-display-none"
             />
           </label>
           <hr
+            className="mobile-display-none"
             style={{
               height: "1px",
               backgroundColor: "#ED4C4C",
               border: "none",
               width: "50%",
               margin: "25px auto",
-              // marginLeft: "0px",
+            }}
+          />
+
+          <hr
+            className="webpage-display-none"
+            style={{
+              height: "1px",
+              backgroundColor: "#ED4C4C",
+              border: "none",
+              width: "81%",
+              margin: "25px auto",
             }}
           />
           <div className="event-list--and-ul-container">
