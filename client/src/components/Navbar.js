@@ -1,6 +1,7 @@
 import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "../styles/nav.scss";
+import { useState } from "react";
 import { userLogout } from "../features/users/usersSlice";
 import { showEvents } from "../features/events/eventsSlice";
 import { resetSingleTag } from "../features/hashtags/hashtagsSlice";
@@ -10,6 +11,7 @@ import { resetFavorite } from "../features/favorites/favoritesSlice";
 function Navbar() {
   const history = useHistory();
   const user = useSelector((state) => state.users.user);
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const dispatch = useDispatch();
 
   function handleLogout() {
@@ -21,6 +23,10 @@ function Navbar() {
         history.push("/");
       }
     });
+  }
+
+  function toggleNavBar() {
+    setNavbarOpen(!navbarOpen);
   }
 
   let initials;
@@ -46,10 +52,16 @@ function Navbar() {
             className="navbar__logo"
             src={process.env.PUBLIC_URL + "/afrofete_logo.png"}
             alt="logo"
+            onClick={() => setNavbarOpen(false)}
           />
         </NavLink>
       </div>
-      <div className="navbar__right-side">
+      <div
+        className={
+          !navbarOpen ? "navbar__right-side" : "navbar__mobile-right-side"
+        }
+        onClick={() => setNavbarOpen(false)}
+      >
         <NavLink
           className="navbar__right-side__non-button-links"
           exact
@@ -64,7 +76,13 @@ function Navbar() {
           <p>How It Works</p>
         </NavLink>
         {!user && (
-          <div className="navbar__right-side__auth-buttons">
+          <div
+            className={
+              !navbarOpen
+                ? "navbar__right-side__auth-buttons"
+                : "navbar__mobile-right-side__auth-buttons"
+            }
+          >
             <NavLink to="/auth/login">
               <button>Login</button>
             </NavLink>
@@ -91,8 +109,8 @@ function Navbar() {
           </NavLink>
         )}
         {user && (
-          <NavLink id="profile-init" to="/profile">
-            <p>{initials.toUpperCase()}</p>
+          <NavLink id={!navbarOpen ? "profile-init" : ""} to="/profile">
+            <p id="mobile-profile-initial">{initials.toUpperCase()}</p>
           </NavLink>
         )}
         {user && (
@@ -100,6 +118,9 @@ function Navbar() {
             <button onClick={handleLogout}>Logout</button>
           </NavLink>
         )}
+      </div>
+      <div className="navbar__mobile-menu-options" onClick={toggleNavBar}>
+        {navbarOpen ? "X" : "="}
       </div>
     </nav>
   );

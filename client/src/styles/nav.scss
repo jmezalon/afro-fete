@@ -6,6 +6,10 @@
     height: 100px; 
     padding: 0 30px;
 
+    &__mobile-menu-options {
+        display: none;
+    }
+
     &__logo {
         width: 40%; 
     }
@@ -74,6 +78,69 @@
 
 /* this is mobile and responsiveness stles */
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 440px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
 
+        &__right-side {
+            display: none;
+        }
+
+        &__mobile-right-side {
+            display: block;
+            position: absolute;
+            top: 90px;
+            background-color: white;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+            
+            &__auth-buttons {
+                display: flex;
+                width: 215px;
+                margin: auto;
+                justify-content: space-between;
+                
+                a.active > button {
+                    background: #ED4C4C;
+                    color: white;
+                    border: none;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: #ED4C4C;
+                font-size: small;
+    
+                button {
+                    background: white;
+                    border: solid 1px #ED4C4C;
+                    border-radius: 16px;
+                    width: 95px;
+                    height: 29px;
+                    color: #ED4C4C;
+                }
+    
+            }
+        }
+
+        &__mobile-menu-options {
+            display: block;
+            font-size: 2.4em;
+            font-weight: 500;
+            font-family: system-ui;
+        }
+    }
+    #mobile-profile-initial{
+        width: 50px;
+        margin: auto;
+        padding: 16px 0;
+        border-radius: 50%;
+        border: 1px solid;
+        margin-bottom: 12px;
+    }
 }
