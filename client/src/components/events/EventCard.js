@@ -1,4 +1,4 @@
-import "../../styles/event.css";
+import "../../styles/event.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { onAddFav, onDeleteFav } from "../../features/favorites/favoritesSlice";
 import { useState } from "react";

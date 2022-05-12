@@ -2,7 +2,7 @@ import { fetchEvents, showEvents } from "../../features/events/eventsSlice";
 import { useEffect, useState } from "react";
 import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import "../../styles/event.css";
+import "../../styles/event.scss";
 import EventCard from "./EventCard";
 import TrendingHash from "./TrendingHash";
 import MiniEventContainer from "./MiniEventContainer";
@@ -106,7 +106,8 @@ function EventList({ tagSearch }) {
   const marginLeftHr = params.type ? "17%" : "";
 
   return (
-    <div id="top" className="event-list--and-ul-container">
+    // <div id="top" className="event-list--and-ul-container">
+    <>
       <ul className={params.type ? "cat-calender-filter" : "calender-filter"}>
         {calenderFilter.map((day) => (
           <li key={day}>{day}</li>
@@ -130,14 +131,21 @@ function EventList({ tagSearch }) {
           tagId={id}
         />
       )}
-      <hr style={{ marginLeft: `${marginLeftHr}`, marginBottom: "6%" }} />
+      <hr
+        style={{
+          marginLeft: `${marginLeftHr}`,
+          marginBottom: "6%",
+          width: "56%",
+          height: "1.5px",
+        }}
+      />
       <TrendingHash
         popularHash={filterTags}
         pt={params.type}
         handleTagClick={handleTagClick}
         tagId={id}
       />
-    </div>
+    </>
   );
 }
 

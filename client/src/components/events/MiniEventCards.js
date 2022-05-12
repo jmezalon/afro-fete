@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import "../../styles/event.css";
+import "../../styles/event.scss";
 import { fetchEvent, showEvents } from "../../features/events/eventsSlice";
 
 function MiniEventCards({ event, pt, tagId }) {
@@ -14,7 +14,7 @@ function MiniEventCards({ event, pt, tagId }) {
   }
 
   const mrgTp = pt ? "-10px" : "";
-  const width = pt ? "125%" : "123%";
+  const width = pt ? "100%" : "123%";
 
   let heart;
   function findFav() {
@@ -70,14 +70,7 @@ function MiniEventCards({ event, pt, tagId }) {
               {!!!findFav() && heart === undefined && <p>🤍</p>}
               {!!findFav() && <p>🧡</p>}
             </section>
-            <div
-              style={{
-                display: "flex",
-                position: "relative",
-                bottom: "-6%",
-                flexDirection: "column",
-              }}
-            >
+            <div>
               <p style={{ marginBottom: "-11px", color: "gray" }}>
                 {event.address}
               </p>
@@ -90,7 +83,7 @@ function MiniEventCards({ event, pt, tagId }) {
                 marginLeft: "-91px",
                 width: `${width}`,
               }}
-              className="hashtag-list"
+              className="hashtag-container__hashtag-list"
             >
               {event.hashtags.map((hash) => (
                 <li

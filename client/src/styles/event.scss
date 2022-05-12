@@ -1,51 +1,68 @@
 .mini-cards-container {
     text-align: center;
-    width: 88%;
+    width: 90%;
     margin: auto;
 }
 
 .event-list-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 92%;
-    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 15px;
+    width: 100%;
+    margin-bottom: 25px;
 }
 
 
 .card-container {
     text-align: center;
-    width: 30%;
-    margin: 1% 1% 1.5% 1%;
+    width: 100%;
+    // margin: 1% 1% 1.5% 1%;
     border: 1px solid rgb(201, 199, 199);
     border-radius: 5px;
     background: white;
+
+    a {
+        text-decoration: none;
+        color: black;
+
+        section {
+            
+            img {
+                border-radius: 5px 5px 0 0;
+                width: 100%;
+                height: 140px;
+                margin: 0 0 2% 0;   
+            }
+        }
+    }
 }
 
 .card-container:hover {
     box-shadow: 8px 15px 15px -10px rgba(66,66,66,1);
 }
 
-.card-container > a > section > img {
-    width: 95%;
-    height: 140px;
-    margin: 2% 0;   
-}
+// .card-container > a > section > img {
+//     width: 8%;
+//     height: 140px;
+//     margin: 2% 0;   
+// }
 
-.card-container > a {
-    text-decoration: none;
-    color: black;
-}
+// .card-container > a {
+//     text-decoration: none;
+//     color: black;
+// }
 
 #bottom-event-card-section {
-    display: flex;
-    margin: 0 3%;
+    // display: flex;
+    // margin: 0 3%;
+    display: grid;
+    grid-template-columns: 20% 80%;
 }
 
 #event-card-left-section {
-    margin-right: -5px;
-    margin-top: -46px;
-    margin-left: -20px;
+    margin-top: -60px;
+    margin-left: -10px;
+    width: 100%;
 }
 #event-card-left-section > p {
     font-size: 2.0em;
@@ -58,28 +75,29 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 100%;
     margin-top: -6%;
 }
 
 #venue-name-and-likes {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 90% 10%;
     align-items: baseline;
-    margin-top: -2px;
-    /* margin-bottom: -35%; */
-    padding-left: 3%;
-    width: 95%;
+    width: 100%;
+    height: 80px;
 }
 
 
 /* this is for the single category css */
 
 .single-category-container {
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
     width: 88%;
-    margin-left: 10%;
+    margin-left: 10%; */
+    display: grid;
+    grid-template-columns: 20% 80%;
+    padding: 0 10%;
 }
 
 .single-cat-container {
@@ -96,25 +114,34 @@
 }
 
 .left-category-section {
-    width: 26%;
-    padding: 10% 0;
-    margin-top: -5.69%;
-    margin-bottom: -4.51%;
+    width: 100%;
+    padding: 55% 0;
+    margin-top: -31.69%;
+    margin-bottom: -24.51%;
     background: #F0F0F0;
     text-align: center;
+    // width: 26%;
+    // padding: 10% 0;
+    // margin-top: -5.69%;
+    // margin-bottom: -4.51%;
+    // background: #F0F0F0;
+    // text-align: center;
 }
 
 .right-category-section {
-    width: 60%;
-    padding: 0 2%;
-    margin-left: 5%;
+    width: 100%;
+    // padding: 0 2% 0 0;
+    text-align: center;
+    // width: 60%;
+    // padding: 0 2%;
+    // margin-left: 5%;
 }
 
 #event-category-title {
     font-size: 2.5em;
     font-family: cursive;
-    margin-left: -3%;
-    margin-bottom: 15px;
+    // margin-left: -3%;
+    // margin-bottom: 15px;
 }
 
 .right-category-section > label > input {
@@ -126,59 +153,79 @@
 }
 
 .cat-event-list-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 150%;
-    margin: auto;
-    margin-left: 5%;
+    // display: flex;
+    // flex-wrap: wrap;
+    // width: 150%;
+    // margin: auto;
+    // margin-left: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    grid-gap: 25px;
 }
 
 .event-list--and-ul-container {
-    margin-left: -69px;
-    width: 110%;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding-left: 10%;
+    // margin-left: -69px;
+    // width: 110%;
 }
 
 .cat-mini-cards-container {
-    text-align: center;
-    width: 70%;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
 }
 
 .cat-calender-filter {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
-    width: 70%;
+    width: 88%;
 }
 
 /* this is the single event card */
 
 .single-card-container {
     text-align: center;
-    width: 60%;
-    margin: 1% 1% 6.5% 4%;
-    height: 525px;
+    width: 90%;
+    margin: 1% 0 6.5% 2%;
     border: 1px solid rgb(201, 199, 199);
     border-radius: 5px;
     overflow-y: scroll;
+
+    section {
+
+        img {
+            width: 100%;
+            height: 250px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 3%;
+        }
+    }
 }
 
-.single-card-container > section > img {
-    width: 95%;
-    height: 240px;
-    margin: 2% 0;   
-}
+// .single-card-container > section > img {
+//     width: 95%;
+//     height: 240px;
+//     margin: 2% 0;   
+// }
 
 
 #single-bottom-event-card-section {
-    display: flex;
-    margin: 0 3%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    padding: 0 2%;
 }
 
 
 
 #single-event-card-left-section {
     margin-right: -15px;
-    margin-top: -75px;
+    margin-top: -92px;
     margin-left: -37px;
 }
 #single-event-card-left-section > p {
@@ -194,7 +241,7 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    width: 75%;
+    width: 97%;
     margin-top: -6%;
     padding-left: 3%;
 }
@@ -224,7 +271,7 @@
     width: 110px;
     height: 29px;
     color: #ED4C4C;
-    margin-left: -5%;
+    margin-left: -68%;
 }
 
 #back-to-events-button:hover {
@@ -237,15 +284,22 @@
 
 .hashtag-container {
     text-align: center;
-    width: 60%;
-}
+    width: 90%;
+    
+    &__hashtag-list {
+        display: flex;
+        justify-content: flex-start;
+        list-style: none;
+        color: #ED4C4C;
+        flex-wrap: wrap;
+        margin-left: 8%;
+        width: 77%;
 
-.hashtag-list {
-    display: flex;
-    justify-content: flex-start;
-    list-style: none;
-    color: #ED4C4C;
-    flex-wrap: wrap;
+        li {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    }
 }
 
 .single-event-hashtag-list {
@@ -255,17 +309,22 @@
     color: #ED4C4C;
     flex-wrap: wrap;
     margin-left: -39px;
+
+    li {
+        margin: 0 5px;
+        cursor: pointer;
+    }
 }
 
-.single-event-hashtag-list > li {
-    margin: 0 5px;
-    cursor: pointer;
-}
+// .single-event-hashtag-list > li {
+//     margin: 0 5px;
+//     cursor: pointer;
+// }
 
-.hashtag-list > li {
-    margin: 0 5px;
-    cursor: pointer;
-}
+// .hashtag-list > li {
+//     margin: 0 5px;
+//     cursor: pointer;
+// }
 
 .selected-tag {
     font-family: fantasy;

@@ -30,6 +30,11 @@
                 border: none;
             }
         }
+
+        &__event-list-container {
+            width: 90%;
+            margin: auto;
+        }
     }
 
     main {
@@ -42,6 +47,15 @@
         }
     }
 }
+
+
+// .mini-cards-container {
+//     display: grid;
+//     grid-template-columns: 1fr 1fr 1fr;
+
+// }
+
+
 
 #header-img {
     width: 25%;
@@ -82,7 +96,7 @@
     width: 110px;
     height: 29px;
     color: #ED4C4C;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 
 #show-more-button:hover {

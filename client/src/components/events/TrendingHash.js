@@ -1,11 +1,11 @@
 function TrendingHash({ pt, tagId, popularHash, handleTagClick }) {
-  const mginLft = pt ? "3%" : "21%";
-  const mglft = pt ? "9%" : "0";
+  const mginLft = pt ? "0" : "5%";
+  // const mglft = pt ? "9%" : "0";
 
   return (
     <div style={{ marginLeft: `${mginLft}` }} className="hashtag-container">
       <h2>Trending Hashtags</h2>
-      <ul style={{ marginLeft: `${mglft}` }} className="hashtag-list">
+      <ul className="hashtag-container__hashtag-list">
         {popularHash.map((hash) => (
           <li
             className={tagId === hash.id ? "selected-tag" : ""}

@@ -69,6 +69,8 @@
     margin-top: 2%;
     border-radius: 5px;
     height: 487px;
+    overflow-y: scroll;
+    margin-bottom: 2%;
 }
 
 
@@ -141,10 +143,16 @@
 
 
 .fav-list-container {
-    display: flex;
-    overflow-x: scroll;
-    margin-top: -20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    width: 98.7%;
 }
+
+.fav-list-container > .card-container {
+    margin: 0 5px;
+}
+
 
 .selected-tags-container{
     display: flex;

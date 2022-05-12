@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import FooterSecondary from "../FooterSecondary";
 import EventTypes from "./EventTypes";
-import "../../styles/event.css";
+import "../../styles/event.scss";
 import EventList from "./EventList";
 import { showEvents } from "../../features/events/eventsSlice";
 
@@ -47,11 +47,13 @@ function SingleEventType() {
               backgroundColor: "#ED4C4C",
               border: "none",
               width: "50%",
-              margin: "3% 0",
-              marginLeft: "-8px",
+              margin: "25px auto",
+              // marginLeft: "0px",
             }}
           />
-          <EventList tagSearch={tagSearch} />
+          <div className="event-list--and-ul-container">
+            <EventList tagSearch={tagSearch} />
+          </div>
         </section>
       </main>
       <FooterSecondary />
