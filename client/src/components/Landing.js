@@ -24,8 +24,8 @@ function Landing() {
           <h6>Choose Your Vibe!</h6>
           <EventTypes />
         </section>
-        <hr />
-        <section>
+        <hr className="mobile-display-none" />
+        <section className="mobile-display-none">
           <EventList />
         </section>
       </main>
