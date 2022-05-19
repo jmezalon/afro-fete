@@ -231,3 +231,45 @@
     border-radius: 17px;
 }
 
+
+@media screen and (max-width: 440px) {
+    .profile-container {
+
+
+    }
+
+    .post-photo-container {
+        width: 95%;
+
+        .header-section {
+            
+            hr {
+                width: 70%;
+            }
+        }
+
+        .photo-section-and-form {
+            display: block;
+            width: 100%;
+
+            form {
+                width: 98%;
+                margin: auto;
+            }
+        }
+
+        .photo-posted {
+            margin: 2% 0 10% 0;
+
+            .photo-posted-container {
+                margin: 0;
+
+                .photo-card {
+                    width: 95%;
+                    margin: auto;
+                    margin-bottom: 4%;
+                }
+            }
+        }
+    }
+}

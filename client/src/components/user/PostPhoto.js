@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import FooterSecondary from "../FooterSecondary";
-import "../../styles/profile.css";
+import "../../styles/profile.scss";
 import {
   fetchHashtags,
   resetPopularHash,
@@ -82,6 +82,7 @@ function PostPhoto() {
           <hr />
           <section className="photo-section-and-form">
             <img
+              className="mobile-display-none"
               src={img_url || `${process.env.PUBLIC_URL}/foto-icon.png`}
               alt="camara-placeholder"
             />

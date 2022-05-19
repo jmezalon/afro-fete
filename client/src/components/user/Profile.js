@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import FooterSecondary from "../FooterSecondary";
-import "../../styles/profile.css";
+import "../../styles/profile.scss";
 import MiniEventCards from "../events/MiniEventCards";
 import {
   fetchFavorites,
