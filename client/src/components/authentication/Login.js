@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { fetchUser } from "../../features/users/usersSlice";
 import { useSelector, useDispatch } from "react-redux";
-import "../../styles/auth.css";
+import "../../styles/auth.scss";
 import { showEvents } from "../../features/events/eventsSlice";
 
 function Login() {

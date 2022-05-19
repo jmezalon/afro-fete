@@ -85,3 +85,25 @@ input[type="radio"]:checked {
     background-color: black;
 }
 
+
+@media screen and (max-width: 440px) {
+    .auth-container {
+        height: 62%;
+        hr {
+            width: 70%;
+        }
+
+        .auth-header {
+            font-size: 2.5em;
+        }
+
+        .auth-logo {
+            width: 20%;
+        }
+
+        .auth-form {
+            width: 80%;
+        }
+    }
+}
+

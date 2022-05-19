@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { showEvents } from "../../features/events/eventsSlice";
 import { signupUser } from "../../features/users/usersSlice";
-import "../../styles/auth.css";
+import "../../styles/auth.scss";
 
 function Singup() {
   const errors = useSelector((state) => state.users.errors);
