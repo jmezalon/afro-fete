@@ -264,13 +264,15 @@
 
                    #save-button {
                        width: 254px;
+                       height: 30px;;
                    }
                }
             }
         }
 
         #favorite-container {
-
+            overflow-x: hidden;
+            
             .fav-list-container {
                 grid-template-columns: 1fr;
                 margin: auto;
@@ -325,6 +327,10 @@
             form {
                 width: 98%;
                 margin: auto;
+
+                #upload-button, #confirm-button {
+                    height: 47px;
+                }
             }
         }
 
