@@ -39,3 +39,30 @@
     list-style: none;
     margin: 0 1%;
 }
+
+@media screen and (max-width: 440px) {
+    .gallery-container {
+        width: 98%;
+        hr {
+            width: 70%;
+            margin-bottom: 8%;
+        }
+
+        .photo-list-container {
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2%;
+            width: 98%;
+            margin-bottom: 20%;
+
+            .gallery-card {
+                max-width: 100%;
+
+                img {
+                    height: 250px;
+                }
+            }
+        }
+    }
+}

@@ -5,7 +5,7 @@ import {
   fetchGalleries,
   resetPopularGalleries,
 } from "../../features/galleries/galleriesSlice";
-import "../../styles/gallery.css";
+import "../../styles/gallery.scss";
 import Photolist from "./Photolist";
 
 function Photogallery() {
