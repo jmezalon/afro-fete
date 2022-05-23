@@ -1,6 +1,5 @@
 function TrendingHash({ pt, tagId, popularHash, handleTagClick }) {
   const mginLft = pt ? "0" : "5%";
-  // const mglft = pt ? "9%" : "0";
 
   return (
     <div style={{ marginLeft: `${mginLft}` }} className="hashtag-container">

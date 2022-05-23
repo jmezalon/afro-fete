@@ -106,7 +106,6 @@ function EventList({ tagSearch }) {
   const marginLeftHr = params.type ? "17%" : "";
 
   return (
-    // <div id="top" className="event-list--and-ul-container">
     <>
       <ul
         className={

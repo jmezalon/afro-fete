@@ -17,6 +17,7 @@ function EventCard({ event, tagId, handleTagClick }) {
   }
 
   let heart;
+
   function findFav() {
     if (!!event.id && user && favorites !== undefined) {
       heart = favorites.find((f) => f.event_id === event.id);
@@ -110,8 +111,8 @@ function EventCard({ event, tagId, handleTagClick }) {
             {event.hashtags &&
               event.hashtags.map((hash) => (
                 <li
-                  onClick={() => handleTagClick(hash.id)}
                   className={tagId === hash.id ? "selected-tag" : ""}
+                  onClick={() => handleTagClick(hash.id)}
                   key={hash.tag}
                 >
                   #{hash.tag}

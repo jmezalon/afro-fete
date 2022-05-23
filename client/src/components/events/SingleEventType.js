@@ -6,6 +6,7 @@ import EventTypes from "./EventTypes";
 import "../../styles/event.scss";
 import EventList from "./EventList";
 import { showEvents } from "../../features/events/eventsSlice";
+import { resetSingleTag } from "../../features/hashtags/hashtagsSlice";
 
 function SingleEventType() {
   const [tagSearch, setTagSearch] = useState("");
@@ -16,6 +17,11 @@ function SingleEventType() {
 
   function handleGoBack() {
     dispatch(showEvents(true));
+  }
+
+  function goBackClick() {
+    dispatch(resetSingleTag());
+    history.push("/");
   }
 
   return (
@@ -30,10 +36,7 @@ function SingleEventType() {
               back to Events
             </button>
           ) : (
-            <button
-              id="back-to-event-category"
-              onClick={() => history.goBack()}
-            >
+            <button id="back-to-event-category" onClick={() => goBackClick()}>
               Back
             </button>
           )}
